@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+"""Zone Zero Ventura static build generator.
+Hand-authored content in content_*.py; this file holds shared chrome only.
+Output: plain HTML files, no build tooling shipped in repo (script is repo-local dev aid)."""
+import json, os, re
+
+DOMAIN = "https://www.zonezeroventura.com"
+SITE_NAME = "Zone Zero Ventura"
+PHONE_TEL = "+18055678416"
+PHONE_DISPLAY = "(805) 567-8416"
+GA4 = "G-X43DDVCW9W"
+PIXEL = "838658782511294"
+OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+FONTS = "https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+
+def head(title, desc, path, ld, recaptcha=False, depth=1):
+    pre = "../" * depth if depth else ""
+    url = DOMAIN + path
+    rc = ('<script src="https://www.google.com/recaptcha/api.js?render='
+          '6Lfh4U4tAAAAALuYKhSwIpggriOhdKqEsj6XBFo6"></script>\n') if recaptcha else ""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:site_name" content="{SITE_NAME}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{FONTS}" rel="stylesheet">
+<link rel="stylesheet" href="{pre}css/site.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', '{GA4}');
+</script>
+<script>
+!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '{PIXEL}');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={PIXEL}&ev=PageView&noscript=1"></noscript>
+{rc}<script type="application/ld+json">
+{json.dumps(ld, indent=1)}
+</script>
+</head>
+<body>
+"""
+
+LOGO_SVG = """<svg class="zz-logo-mark" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="8" width="4" height="18" rx="1" fill="#C9A66B"/><rect x="15" y="5" width="4" height="21" rx="1" fill="#E3C68A"/><rect x="24" y="10" width="4" height="16" rx="1" fill="#C9A66B"/><path d="M2 28 Q6 25 10 28 T18 28 T26 28 T34 28" stroke="#E3C68A" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>"""
+
+def nav():
+    return f"""<nav class="zz-nav" aria-label="Main">
+<div class="zz-nav-inner">
+<a href="/" class="zz-logo">{LOGO_SVG}<span class="zz-logo-text">Zone Zero<small>Ventura</small></span></a>
+<button class="zz-nav-toggle" aria-expanded="false" aria-label="Menu">&#9776;</button>
+<ul class="zz-nav-links">
+<li><a href="/regulations/">Regulations</a></li>
+<li><a href="/deadlines/">Deadlines</a></li>
+<li><a href="/fences/">Fences</a></li>
+<li><a href="/fire-history/">Fire History</a></li>
+<li><a href="/resources/">Resources</a></li>
+<li><a href="/find-contractor/" class="zz-nav-cta">Connect with a Contractor</a></li>
+</ul>
+</div>
+</nav>
+"""
+
+def cta(place="your Ventura County property", trackc=False):
+    if trackc:
+        return f"""<section class="zz-cta zz-cta-trackc">
+<div class="zz-container">
+<h2 class="zz-cta-title">Support is available for {place}</h2>
+<p>Grant programs and free defensible-space guidance exist for mountain communities, and a free assessment shows what applies to your parcel before you spend anything. No pressure, no obligation.</p>
+<a href="/assistance/" class="zz-btn">See assistance programs</a>
+<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">request a free assessment</a>.</p>
+</div>
+</section>
+"""
+    return f"""<section class="zz-cta">
+<div class="zz-container">
+<h2 class="zz-cta-title">Find out what {place} needs</h2>
+<p>A free assessment tells you exactly which Zone Zero requirements apply to your parcel, what your local fire authority will look for, and what to fix first. 100% free, no obligation.</p>
+<a href="/find-contractor/" class="zz-btn">Connect with a Licensed Contractor</a>
+<p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
+</div>
+</section>
+"""
+
+def footer():
+    return f"""<footer class="zz-footer">
+<div class="zz-container">
+<div class="zz-footer-grid">
+<div class="zz-footer-about">
+<h4>Zone Zero Ventura</h4>
+<p>Plain-English guidance on California's Zone Zero ember-resistant zone requirements for Orange County homeowners, from the Santa Ana canyons to the coast. Independent educational resource. Not a government agency.</p>
+</div>
+<div>
+<h4>Guides</h4>
+<ul>
+<li><a href="/regulations/">The regulations</a></li>
+<li><a href="/deadlines/">Deadlines</a></li>
+<li><a href="/fences/">Fences &amp; gates</a></li>
+<li><a href="/landscaping/">Landscaping</a></li>
+<li><a href="/home-hardening/">Home hardening</a></li>
+<li><a href="/assistance/">Assistance programs</a></li>
+</ul>
+</div>
+<div>
+<h4>Communities</h4>
+<ul>
+<li><a href="/ventura/">City of Ventura</a></li>
+<li><a href="/ojai/">Ojai</a></li>
+<li><a href="/camarillo/">Camarillo</a></li>
+<li><a href="/thousand-oaks/">Thousand Oaks</a></li>
+<li><a href="/fire-history/">County fire history</a></li>
+</ul>
+</div>
+<div>
+<h4>Network</h4>
+<ul>
+<li><a href="https://zonezerocalifornia.com">Zone Zero California</a></li>
+<li><a href="https://www.zonezerolosangeles.com">Zone Zero Los Angeles</a></li>
+<li><a href="https://www.zonezerosandiego.com">Zone Zero San Diego</a></li>
+<li><a href="/resources/">Official resources</a></li>
+<li><a href="/privacy/">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="zz-footer-bottom">
+<p>&copy; 2026 Zone Zero Ventura. Educational information, not legal advice. Regulations change: verify requirements with your local fire authority before making decisions. Questions? Call {PHONE_DISPLAY}.</p>
+</div>
+</div>
+</footer>
+<script src="/js/site.js"></script>
+</body>
+</html>
+"""
+
+def base_ld(title, desc, path, crumbs, faqs=None, area=None):
+    graph = [
+        {"@type": "Organization", "@id": "https://zonezerocalifornia.com/#org",
+         "name": "Zone Zero California", "url": "https://zonezerocalifornia.com"},
+        {"@type": "WebSite", "@id": DOMAIN + "/#website", "url": DOMAIN + "/",
+         "name": SITE_NAME, "publisher": {"@id": "https://zonezerocalifornia.com/#org"}},
+    ]
+    page = {"@type": "WebPage", "@id": DOMAIN + path + "#webpage",
+            "url": DOMAIN + path, "name": title, "description": desc,
+            "isPartOf": {"@id": DOMAIN + "/#website"}}
+    if area:
+        page["areaServed"] = {"@type": "Place", "name": area}
+    graph.append(page)
+    items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": DOMAIN + p}
+             for i, (n, p) in enumerate(crumbs)]
+    graph.append({"@type": "BreadcrumbList", "itemListElement": items})
+    if faqs:
+        graph.append({"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}}
+            for q, a in faqs]})
+    return {"@context": "https://schema.org", "@graph": graph}
+
+def faq_html(faqs, heading):
+    out = [f'<section><div class="zz-container"><p class="zz-eyebrow">Questions</p><h2 class="zz-h2">{heading}</h2>']
+    for q, a in faqs:
+        out.append(f'<details class="zz-faq-item"><summary class="zz-faq-q">{q}</summary><div class="zz-faq-a"><p>{a}</p></div></details>')
+    out.append('</div></section>')
+    return "\n".join(out)
+
+def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False):
+    """path like '/deadlines/' -> deadlines/index.html ; '/' -> index.html ; '/404.html' special."""
+    ld = base_ld(title, desc, path, crumbs, faqs, area)
+    depth = 0 if path in ("/", "/404.html") else 1
+    html = head(title, desc, path, ld, recaptcha, depth) + nav() + body
+    if faqs:
+        html += faq_html(faqs, f"Quick answers")
+    if cta_place is not None:
+        html += cta(cta_place, trackc)
+    html += footer()
+    if path == "/":
+        fp = os.path.join(OUT, "index.html")
+    elif path == "/404.html":
+        fp = os.path.join(OUT, "404.html")
+    else:
+        d = os.path.join(OUT, path.strip("/"))
+        os.makedirs(d, exist_ok=True)
+        fp = os.path.join(d, "index.html")
+    with open(fp, "w") as f:
+        f.write(html)
+    print("wrote", fp)
+
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import content_core, content_localities
+    content_core.build(write_page)
+    content_localities.build(write_page)
+    print("done")

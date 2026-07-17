@@ -1,0 +1,208 @@
+/* ============================================================
+   Zone Zero Ventura — Ventura Pier Harbor
+   Identity tokens per claude/ventura-kickoff.md (Chris-approved 2026-07-12)
+   Cream-dominant surfaces; harbor-deep reserved for nav, footer, dark section.
+   Domine + Mulish. Network invariants: zz- prefix, fixed phase badge colors,
+   767/479 breakpoints, WCAG AA.
+   ============================================================ */
+:root{
+  --zz-harbor:#1B4B4A;
+  --zz-harbor-deep:#0F2E2E;
+  --zz-sand:#C9A66B;
+  --zz-sand-bright:#E3C68A;
+  --zz-driftwood:#7A6F63;
+  --zz-cream:#F6F1E6;
+  --zz-ink:#23302E;
+  --zz-hairline:#E2D8C4;
+  --zz-white:#FFFDF7;
+  --zz-font-display:'Domine',Georgia,serif;
+  --zz-font-body:'Mulish',-apple-system,Segoe UI,sans-serif;
+  /* Network-fixed phase badge colors */
+  --zz-p1-bg:#fdf0f2;--zz-p1-fg:#BF0A30;
+  --zz-p2-bg:#FDF6EC;--zz-p2-fg:#83460D;
+  --zz-imm-bg:#BF0A30;--zz-imm-fg:#ffffff;
+  --zz-bp-bg:#EEF2FF;--zz-bp-fg:#003DA5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--zz-font-body);color:var(--zz-ink);background:var(--zz-cream);line-height:1.68;font-size:16.5px}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:#7A5E2A;text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--zz-sand);outline-offset:2px}
+.zz-container{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+.zz-eyebrow{font-size:12.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:#7A5E2A;margin-bottom:14px}
+.zz-h2{font-family:var(--zz-font-display);font-size:clamp(26px,3.4vw,36px);font-weight:700;color:var(--zz-harbor);line-height:1.22;margin-bottom:22px}
+.zz-h3{font-family:var(--zz-font-display);font-size:20px;font-weight:700;color:var(--zz-harbor);margin-bottom:10px}
+p{margin-bottom:16px}
+p b,p strong{color:var(--zz-harbor)}
+ul.zz-list{margin:0 0 18px 22px}
+ul.zz-list li{margin-bottom:8px}
+
+/* --- Nav --- */
+.zz-nav{background:var(--zz-harbor-deep);position:sticky;top:0;z-index:50;border-bottom:2px solid var(--zz-sand)}
+.zz-nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto}
+.zz-logo{display:flex;align-items:center;gap:11px}
+.zz-logo:hover{text-decoration:none}
+.zz-logo-mark{width:34px;height:34px;flex:none}
+.zz-logo-text{font-family:var(--zz-font-display);font-size:18px;font-weight:700;color:var(--zz-cream);line-height:1.15}
+.zz-logo-text small{display:block;font-family:var(--zz-font-body);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--zz-sand);font-weight:700}
+.zz-nav-links{display:flex;gap:26px;list-style:none;align-items:center}
+.zz-nav-links a{color:var(--zz-cream);font-size:14.5px;font-weight:700}
+.zz-nav-links a:hover{color:var(--zz-sand-bright);text-decoration:none}
+.zz-nav-cta{background:var(--zz-sand);color:var(--zz-harbor-deep) !important;padding:9px 18px;border-radius:8px;font-weight:800}
+.zz-nav-cta:hover{background:var(--zz-sand-bright)}
+.zz-nav-toggle{display:none;background:none;border:2px solid var(--zz-sand);border-radius:8px;color:var(--zz-cream);font-size:20px;padding:4px 12px;cursor:pointer}
+
+/* --- Harbor-line hero (cream-dominant, pier pilings + wave behind copy) --- */
+.zz-hero{position:relative;padding:78px 0 128px;background:var(--zz-cream);overflow:hidden}
+.zz-hero-harbor{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;pointer-events:none}
+.zz-hero-inner{position:relative;max-width:760px;z-index:1}
+.zz-hero h1{font-family:var(--zz-font-display);font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.12;color:var(--zz-harbor);margin-bottom:20px}
+.zz-hero h1 em{font-style:italic;color:#7A5E2A}
+.zz-hero-sub{font-size:18px;max-width:640px;margin-bottom:28px}
+.zz-hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.zz-btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:800;font-size:16px}
+.zz-btn:hover{text-decoration:none}
+.zz-btn-sand{background:var(--zz-sand);color:var(--zz-harbor-deep)}
+.zz-btn-sand:hover{background:var(--zz-sand-bright)}
+.zz-btn-ghost{border:2px solid var(--zz-harbor);color:var(--zz-harbor)}
+.zz-btn-ghost:hover{background:var(--zz-harbor);color:var(--zz-cream)}
+
+/* --- Quick answer --- */
+.zz-quick-answer{background:var(--zz-white);border-left:5px solid var(--zz-sand);border-top:1px solid var(--zz-hairline);border-bottom:1px solid var(--zz-hairline);padding:22px 26px;margin:0 0 8px;font-size:17px}
+.zz-quick-answer b{color:var(--zz-harbor)}
+
+/* --- Trust band --- */
+.zz-trust{background:var(--zz-harbor);color:var(--zz-cream);padding:26px 0}
+.zz-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
+.zz-trust-item b{display:block;font-family:var(--zz-font-display);font-size:19px;color:var(--zz-sand-bright)}
+.zz-trust-item span{font-size:13px;opacity:.92}
+
+/* --- Piling-marker stat panel (post icons on a waterline rule) --- */
+.zz-pilings{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;background:var(--zz-white);border:1px solid var(--zz-hairline);position:relative}
+.zz-pilings::after{content:"";position:absolute;left:0;right:0;bottom:22px;height:2px;background:linear-gradient(90deg,var(--zz-sand) 0 40%,var(--zz-hairline) 40% 100%);opacity:.6}
+.zz-piling-item{padding:24px 22px 46px;position:relative;text-align:left}
+.zz-piling-item::after{content:"";position:absolute;bottom:12px;left:24px;width:8px;height:26px;background:var(--zz-driftwood);border-radius:2px 2px 0 0;z-index:1}
+.zz-piling-item::before{content:"";position:absolute;bottom:12px;left:38px;width:8px;height:18px;background:var(--zz-sand);border-radius:2px 2px 0 0;z-index:1}
+.zz-piling-val{font-family:var(--zz-font-display);font-size:clamp(22px,2.8vw,30px);font-weight:700;color:var(--zz-harbor)}
+.zz-piling-label{font-size:13.5px;margin-top:6px}
+.zz-snap{margin:26px 0}
+
+/* --- Harbor-map hub groups (swatch-dot headers over chips) --- */
+.zz-group-head{display:flex;align-items:center;gap:10px;font-family:var(--zz-font-display);font-size:21px;font-weight:700;color:var(--zz-harbor);margin:34px 0 6px}
+.zz-group-head .zz-dot{width:13px;height:13px;border-radius:50%;flex:none}
+.zz-dot-mountain{background:#BF0A30}
+.zz-dot-thomas{background:#B4530A}
+.zz-dot-valley{background:#5C7350}
+.zz-dot-vh{background:#1B4B4A}
+.zz-group-note{font-size:14.5px;margin-bottom:14px}
+.zz-chip-row{display:flex;flex-wrap:wrap;gap:10px}
+.zz-chip{display:inline-block;background:var(--zz-white);border:1px solid var(--zz-hairline);border-radius:8px;padding:9px 18px;font-weight:800;font-size:14.5px;color:var(--zz-harbor)}
+.zz-chip:hover{border-color:var(--zz-sand);background:var(--zz-sand-bright);text-decoration:none;color:var(--zz-harbor-deep)}
+
+/* --- Phase badges (network-fixed) --- */
+.zz-badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:6px}
+.zz-badge-p1{background:var(--zz-p1-bg);color:var(--zz-p1-fg)}
+.zz-badge-p2{background:var(--zz-p2-bg);color:var(--zz-p2-fg)}
+.zz-badge-imm{background:var(--zz-imm-bg);color:var(--zz-imm-fg)}
+.zz-badge-bp{background:var(--zz-bp-bg);color:var(--zz-bp-fg)}
+
+/* --- Dark section: Two Fires, One County --- */
+.zz-dark{background:var(--zz-harbor-deep);color:var(--zz-cream)}
+.zz-dark .zz-h2,.zz-dark .zz-h3{color:var(--zz-cream)}
+.zz-dark .zz-eyebrow{color:var(--zz-sand-bright)}
+.zz-dark a{color:var(--zz-sand-bright)}
+.zz-dark p b{color:var(--zz-sand-bright)}
+.zz-twofires{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
+.zz-fire-card{border:1px solid rgba(201,166,107,.35);border-radius:10px;padding:26px}
+.zz-fire-card h3{font-family:var(--zz-font-display);font-size:21px;color:var(--zz-sand-bright);margin-bottom:10px}
+.zz-fire-card .zz-fire-year{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--zz-cream);opacity:.75;margin-bottom:6px}
+.zz-fire-card p{font-size:15px;margin-bottom:10px}
+
+/* --- Hub grid --- */
+.zz-hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:24px}
+.zz-hub-link{display:block;background:var(--zz-white);border:1px solid var(--zz-hairline);border-radius:10px;padding:16px 18px;color:var(--zz-ink)}
+.zz-hub-link:hover{border-color:var(--zz-sand);text-decoration:none;transform:translateY(-2px);transition:transform .15s}
+.zz-hub-link b{display:block;font-family:var(--zz-font-display);color:var(--zz-harbor);font-size:17px;margin-bottom:4px}
+.zz-hub-link span{font-size:13.5px}
+
+/* --- Timeline table --- */
+.zz-timeline{width:100%;border-collapse:collapse;background:var(--zz-white);border:1px solid var(--zz-hairline)}
+.zz-timeline th{background:var(--zz-harbor);color:var(--zz-cream);font-family:var(--zz-font-display);font-weight:700;text-align:left;padding:14px 16px;font-size:15px}
+.zz-timeline td{padding:14px 16px;border-top:1px solid var(--zz-hairline);vertical-align:top;font-size:15px}
+
+/* --- Figures --- */
+.zz-figure{background:var(--zz-white);border:1px solid var(--zz-hairline);border-radius:10px;padding:26px;margin:26px 0}
+.zz-figure figcaption{font-size:13px;margin-top:12px;color:#6E655A}
+
+/* --- FAQ --- */
+.zz-faq-item{background:var(--zz-white);border:1px solid var(--zz-hairline);border-radius:10px;margin-bottom:10px}
+.zz-faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 20px;font-family:var(--zz-font-display);font-size:17px;font-weight:700;color:var(--zz-harbor)}
+.zz-faq-item summary::-webkit-details-marker{display:none}
+.zz-faq-item summary::after{content:"+";font-size:22px;color:#7A5E2A;flex:none}
+.zz-faq-item[open] summary::after{content:"–"}
+.zz-faq-a{padding:0 20px 18px;font-size:15.5px}
+
+/* --- Forms --- */
+.zz-form{background:var(--zz-white);border:1px solid var(--zz-hairline);border-top:4px solid var(--zz-sand);border-radius:12px;padding:30px;max-width:640px}
+.zz-form label{display:block;font-weight:800;font-size:14px;margin:14px 0 6px;color:var(--zz-harbor)}
+.zz-form input,.zz-form textarea{width:100%;padding:12px 14px;border:1px solid var(--zz-hairline);border-radius:8px;font-family:var(--zz-font-body);font-size:15.5px;background:var(--zz-cream)}
+.zz-form button{margin-top:22px;width:100%;background:var(--zz-sand);color:var(--zz-harbor-deep);border:none;padding:15px;border-radius:8px;font-size:16.5px;font-weight:800;cursor:pointer;font-family:var(--zz-font-body)}
+.zz-form button:hover{background:var(--zz-sand-bright)}
+.zz-form-status{margin-top:14px;font-size:14.5px;font-weight:700;display:none}
+.zz-disclosure{font-size:13px;color:#6E655A;border-top:1px solid var(--zz-hairline);margin-top:22px;padding-top:16px;line-height:1.6}
+
+/* --- CTA band --- */
+.zz-cta{background:var(--zz-harbor);color:var(--zz-cream);text-align:center}
+.zz-cta .zz-cta-title{font-family:var(--zz-font-display);font-size:clamp(24px,3.4vw,33px);font-weight:700;margin-bottom:14px}
+.zz-cta p{max-width:620px;margin:0 auto 24px}
+.zz-cta .zz-btn{background:var(--zz-sand);color:var(--zz-harbor-deep)}
+.zz-cta .zz-btn:hover{background:var(--zz-sand-bright)}
+.zz-cta a.zz-cta-tel{color:var(--zz-sand-bright);font-weight:800;text-decoration:underline}
+
+/* --- Track C variant retained for template parity (unused on this site) --- */
+.zz-cta-trackc{background:#5C7350;color:#F3F2EA}
+.zz-cta-trackc a.zz-cta-tel{color:#F3F2EA}
+.zz-cta-trackc .zz-btn{background:#F3F2EA;color:#37432F}
+.zz-cta-trackc .zz-btn:hover{background:#fff}
+
+/* --- Footer --- */
+.zz-footer{background:var(--zz-harbor-deep);color:#E5DECB;padding:56px 0 30px;border-top:2px solid var(--zz-sand)}
+.zz-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.zz-footer h4{font-family:var(--zz-font-display);font-size:16px;color:var(--zz-sand-bright);margin-bottom:14px}
+.zz-footer ul{list-style:none}
+.zz-footer li{margin-bottom:8px;font-size:14px}
+.zz-footer a{color:#E5DECB}
+.zz-footer a:hover{color:var(--zz-sand-bright)}
+.zz-footer-about{font-size:14px;line-height:1.7}
+.zz-footer-bottom{border-top:1px solid rgba(229,222,203,.2);padding-top:22px;font-size:12.5px;color:#B8AF99}
+
+/* --- Breadcrumb --- */
+.zz-crumb{font-size:13px;padding:16px 0 0}
+.zz-crumb a{color:var(--zz-ink)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .zz-hub-link:hover{transform:none}
+}
+@media (max-width:767px){
+  section{padding:52px 0}
+  .zz-hero{padding:56px 0 104px}
+  .zz-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--zz-harbor-deep);flex-direction:column;padding:18px 24px;gap:16px;border-bottom:2px solid var(--zz-sand);align-items:flex-start}
+  .zz-nav-links.zz-open{display:flex}
+  .zz-nav-toggle{display:block}
+  .zz-trust-grid{grid-template-columns:repeat(2,1fr)}
+  .zz-footer-grid{grid-template-columns:1fr 1fr}
+  .zz-pilings{grid-template-columns:1fr 1fr}
+  .zz-twofires{grid-template-columns:1fr}
+}
+@media (max-width:479px){
+  body{font-size:15.5px}
+  .zz-trust-grid{grid-template-columns:1fr}
+  .zz-footer-grid{grid-template-columns:1fr}
+  .zz-form{padding:22px 16px}
+  .zz-timeline{display:block;overflow-x:auto}
+  .zz-pilings{grid-template-columns:1fr}
+}

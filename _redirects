@@ -1,0 +1,8 @@
+# Zone Zero Ventura — Netlify redirects
+# Canonical host: www (ratified network-wide 2026-07-11)
+https://zonezeroventura.com/*  https://www.zonezeroventura.com/:splat  301!
+http://zonezeroventura.com/*   https://www.zonezeroventura.com/:splat  301!
+http://www.zonezeroventura.com/*  https://www.zonezeroventura.com/:splat  301!
+
+# 404 fallback
+/*  /404.html  404

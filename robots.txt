@@ -1,0 +1,4 @@
+# Zone Zero Ventura — STAGING robots.txt
+# Swap in robots-production.txt at launch (custom domain live + content approved).
+User-agent: *
+Disallow: /

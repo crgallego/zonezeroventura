@@ -1,0 +1,7 @@
+# Zone Zero Ventura — PRODUCTION robots.txt
+# Swap this in for robots.txt at launch, replacing the staging version.
+User-agent: *
+Allow: /
+Disallow: /404/
+
+Sitemap: https://www.zonezeroventura.com/sitemap.xml
