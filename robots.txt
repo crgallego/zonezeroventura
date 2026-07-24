@@ -1,4 +1,7 @@
-# Zone Zero Ventura — STAGING robots.txt
-# Swap in robots-production.txt at launch (custom domain live + content approved).
+# Zone Zero Ventura — PRODUCTION robots.txt
+# Swap this in for robots.txt at launch, replacing the staging version.
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /404/
+
+Sitemap: https://www.zonezeroventura.com/sitemap.xml
