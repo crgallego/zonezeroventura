@@ -206,3 +206,9 @@ ul.zz-list li{margin-bottom:8px}
   .zz-timeline{display:block;overflow-x:auto}
   .zz-pilings{grid-template-columns:1fr}
 }
+
+/* Consent checkbox — added 2026-08-21 privacy pass */
+.zz-consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.45;margin:12px 0 16px;color:inherit}
+.zz-consent input{margin-top:4px;flex:none}
+
+.zz-form-note{font-size:13px;line-height:1.45;margin:10px 0 0;opacity:.85}

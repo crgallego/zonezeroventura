@@ -38,17 +38,24 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
       var btn = form.querySelector('button[type="submit"]');
       var status = form.querySelector('.zz-form-status');
       var payload = {};
       Array.prototype.forEach.call(form.elements, function (el) {
-        if (el.name) { payload[el.name] = el.value; }
+        if (el.name && el.name !== 'consent') { payload[el.name] = el.value; }
       });
       payload._site = SITE;
       payload._page = window.location.pathname;
       payload._event_id = makeEventId();
 
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      payload.consent = true;
+      payload.consent_text_version = 'zz-consent-v1-2026-08-21';
+      payload.consent_ts = new Date().toISOString();
+      payload.consent_page_url = location.href;
+      payload.form_id = form.id || 'zz-find-contractor';
+
 
       getRecaptchaToken().then(function (token) {
         payload._recaptcha_token = token;
@@ -69,7 +76,7 @@
         if (status) {
           status.style.display = 'block';
           status.style.color = '#33502E';
-          status.textContent = 'Request received. Someone will be in touch with you shortly.';
+          status.textContent = 'Thank you. We\'ll review your property and contact you within one business day to talk through your Zone 0 options and, if you\'d like, connect you with an independent CSLB-licensed contractor.';
         }
         if (btn) { btn.textContent = 'Request sent'; }
       }).catch(function () {

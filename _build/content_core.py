@@ -142,7 +142,7 @@ def build(write_page):
 <p><b>3. If work is needed, you're connected with a licensed contractor.</b> Fence and gate replacement in the 0 to 5 foot zone is the most common project. All referrals are CSLB-licensed. You choose who you hire, always.</p>
 <p>Prefer to talk it through? Call <a href="tel:{PHONE_TEL}"><b>{PHONE}</b></a>.</p>
 </div>
-<form class="zz-form" data-webhook="" novalidate>
+<form id="zz-find-contractor" class="zz-form" data-webhook="" novalidate>
 <h2 class="zz-h3" style="font-size:22px">Request my free assessment</h2>
 <label for="first_name">First name</label>
 <input id="first_name" name="first_name" type="text" autocomplete="given-name" required>
@@ -158,7 +158,12 @@ def build(write_page):
 <input id="city" name="city" type="text" autocomplete="address-level2" required>
 <label for="message">Anything specific you want checked? (optional)</label>
 <textarea id="message" name="message" rows="3"></textarea>
+<label class="zz-consent">
+<input type="checkbox" name="consent" required>
+<span><strong>Yes — connect me with a contractor.</strong> I am asking Firewise Fences, Inc. to share my name, phone number, email address, and property address with an independent CSLB-licensed contractor so that contractor can contact me about a Zone 0 assessment. I agree that contractor and Firewise Fences, Inc. may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
+</label>
 <button type="submit">Request my free assessment</button>
+<p class="zz-form-note">Your request goes to our team for review.</p>
 <p class="zz-form-status" role="status"></p>
 <p class="zz-disclosure">Disclosure: this network's operator also owns a fence contracting company, and fence inquiries may be referred to it. You are never obligated to use it, and you're free to choose any licensed contractor. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
 </form>
