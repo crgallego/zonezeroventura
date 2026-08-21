@@ -56,7 +56,6 @@ fbq('track', 'PageView');
 {rc}<script type="application/ld+json">
 {json.dumps(ld, indent=1)}
 </script>
-<script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="RJsi3SPJOTDo8QvD" data-version="062024"></script>
 </head>
 <body>
 """
