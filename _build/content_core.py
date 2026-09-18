@@ -140,7 +140,8 @@ def build(write_page):
 <p><b>1. We check your parcel.</b> Your address is matched against CAL FIRE's 2025 Fire Hazard Severity Zone maps and your community's adopted local map. With 59,000 of the county's 86,000 mapped parcels now Very High, the answer is yes more often than most homeowners expect, and a parcel-level check beats a guess.</p>
 <p><b>2. You get a plain-English rundown.</b> Which tier you're in, which Zone 0 requirements apply, what your fire authority (VCFD or the Ventura City Fire Department) will look for, and what the phased deadlines mean for you.</p>
 <p><b>3. If work is needed, you're connected with a licensed contractor.</b> Fence and gate replacement in the 0 to 5 foot zone is the most common project. All referrals are CSLB-licensed. You choose who you hire, always.</p>
-<p>Prefer to talk it through? Call <a href="tel:{PHONE_TEL}"><b>{PHONE}</b></a>.</p>
+<p>Prefer to talk it through? Call <a href="tel:{PHONE_TEL}"><b>{PHONE}</b></a>
+          <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
 <form id="zz-find-contractor" class="zz-form" data-webhook="" novalidate>
 <h2 class="zz-h3" style="font-size:22px">Request my free assessment</h2>
@@ -462,23 +463,47 @@ def build(write_page):
                "Ventura County, California", cta_place="your property")
 
     # ---------------- PRIVACY ----------------
-    priv_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Privacy</p></div>
-<section style="padding-top:44px"><div class="zz-container" style="max-width:820px">
-<h1 class="zz-h2" style="font-size:36px">Privacy Policy</h1>
-<p>Effective July 2026. This policy covers zonezeroventura.com, part of the Zone Zero educational network alongside sites like <a href="https://www.zonezerosandiego.com">Zone Zero San Diego</a> and <a href="https://zonezerocalifornia.com">Zone Zero California</a>.</p>
-<h2 class="zz-h3">What we collect</h2>
-<p>When you submit the assessment form, we collect the information you provide: name, contact details, property address, and your message. We use it to check your parcel's hazard designation, respond to your request, and, where relevant, connect you with a licensed contractor. Our site also uses Google Analytics and the Meta pixel to understand aggregate site usage, and Google reCAPTCHA to filter automated spam.</p>
-<h2 class="zz-h3">What we don't do</h2>
-<p>We don't sell your personal information. We don't share form submissions except as needed to fulfill your request (for example, referring a fence inquiry to a licensed contractor, as disclosed on the request form).</p>
-<h2 class="zz-h3">Zone Zero terminology note</h2>
-<p>References on this site to Zone Zero, Zone 0, and the ember-resistant zone describe the same regulatory concept under California law.</p>
-<h2 class="zz-h3">Contact</h2>
-<p>Questions about this policy or your data: call {PHONE}.</p>
-</div></section>
+    # Authoritative text is the committed privacy/index.html (Effective date:
+    # August 21, 2026). HTML title/meta were patched after generate; JSON-LD
+    # still uses the generator title/description below.
+    priv_body = """<main>
+<header class="zz-hero" style="padding:0">
+  <div class="zz-container">
+    <div class="zz-hero-inner" style="padding:56px 0">
+      <span class="zz-eyebrow-light">Zone Zero Ventura County</span>
+      <h1 class="zz-h1" style="font-size:clamp(30px,4vw,44px)">Privacy Policy</h1>
+    </div>
+  </div>
+</header>
+<section style="padding:72px 0">
+  <div class="zz-container zz-prose" style="max-width:800px">
+    <p><em>Effective date: August 21, 2026</em></p>
+    <h2>Who we are</h2>
+    <p>This site is operated by Firewise Fences, Inc. ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
+    <h2>What we collect</h2>
+    <p>When you use our forms, compliance checker, or phone line, we may collect: your name, email address, phone number, property address or city, and information you provide about your property. Our phone line is answered by an automated AI assistant; calls may be recorded and transcribed. We also collect standard usage data through cookies and similar technologies, including via Google Analytics and the Meta (Facebook) pixel.</p>
+    <h2>How we use it</h2>
+    <p>We use this information to operate the site, respond to your requests, provide the compliance guide, and — when you ask us to — connect you with an independent CSLB-licensed local contractor for an assessment. We may receive compensation for those connections.</p>
+    <h2>Who we share it with</h2>
+    <p>If you request a contractor connection, we share your contact and property information with the contractor(s) who will follow up. We also use service providers (hosting, analytics, advertising, and workflow automation) that process data on our behalf. We do not sell your personal information to unrelated third parties.</p>
+    <h2>Your choices</h2>
+    <p>You can browse this site without submitting any personal information. You can control cookies through your browser settings. California residents may request access to or deletion of their personal information via the contact form on this site; we will respond as required by applicable law.</p>
+    <h2>Do Not Track</h2>
+    <p>This site does not currently respond to browser Do Not Track signals.</p>
+    <h2>Changes</h2>
+    <p>If we change this policy, we will post the updated version on this page with a new effective date.</p>
+    <h2>Contact</h2>
+    <p>Questions about this policy: use the contact form on this site.</p>
+  </div>
+</section>
+</main>
+
 """
     write_page("/privacy/", "Privacy Policy | Zone Zero Ventura",
                "Privacy policy for zonezeroventura.com: what we collect through the assessment form and analytics, and how it's used.",
-               priv_body, [("Home", "/"), ("Privacy", "/privacy/")], None, cta_place=None)
+               priv_body, [("Home", "/"), ("Privacy", "/privacy/")], None, cta_place=None,
+               html_title="Privacy Policy | Zone Zero Ventura County",
+               html_desc="Privacy policy for Zone Zero Ventura County: what we collect, how we use it, and your choices.'s used.")
 
     # ---------------- 404 ----------------
     nf_body = f"""<section style="padding:100px 0"><div class="zz-container" style="text-align:center;max-width:640px">

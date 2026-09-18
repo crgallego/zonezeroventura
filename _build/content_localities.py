@@ -189,6 +189,7 @@ def build(write_page):
 <div class="zz-hero-btns">
 <a href="/find-contractor/" class="zz-btn zz-btn-sand">Check my parcel, free</a>
 <a href="tel:{PHONE_TEL}" class="zz-btn zz-btn-ghost">Call {PHONE}</a>
+          <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>
 </div>
 </div></div></header>
 <div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> {d['name']} is served by the {d['ahj']} as its local fire authority, with a {d['tier']} standing on this site. {qa_tail}</div></div>

@@ -12,6 +12,16 @@ GA4 = "G-X43DDVCW9W"
 PIXEL = "838658782511294"
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+TRANSPARENCY_STYLE = """<style id="zz-transparency">
+.zz-phone-disclosure{display:block;font-size:12px;line-height:1.45;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none;max-width:46ch;opacity:.9}
+.zz-cta-btns .zz-phone-disclosure{flex-basis:100%;margin-top:10px}
+.zz-footer .zz-phone-disclosure{margin-top:4px;opacity:.8}
+.zz-operator-line{margin-bottom:10px}
+</style>
+"""
+OPERATOR_PLACE = 'Zone Zero Ventura County'
+CITY_PLACE = 'Ventura County'
+
 # Zone checker widget (hosted on zone-zero-checker-api.netlify.app; nothing
 # bundled here). Home page only. Values match this site's entry in
 # zone-zero-checker-api's config/network-site-checker.json.
@@ -47,9 +57,11 @@ def checker_section():
 
 FONTS = "https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
 
-def head(title, desc, path, ld, recaptcha=False, depth=1, checker=False):
+def head(title, desc, path, ld, recaptcha=False, depth=1, checker=False, html_title=None, html_desc=None):
     pre = "../" * depth if depth else ""
     url = DOMAIN + path
+    page_title = title if html_title is None else html_title
+    page_desc = desc if html_desc is None else html_desc
     rc = ('<script src="https://www.google.com/recaptcha/api.js?render='
           '6Lfh4U4tAAAAALuYKhSwIpggriOhdKqEsj6XBFo6"></script>\n') if recaptcha else ""
     checker_css = f'<link rel="stylesheet" href="{CHECKER_CSS_HREF}">\n' if checker else ""
@@ -58,13 +70,13 @@ def head(title, desc, path, ld, recaptcha=False, depth=1, checker=False):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title}</title>
-<meta name="description" content="{desc}">
+<title>{page_title}</title>
+<meta name="description" content="{page_desc}">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url}">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{desc}">
+<meta property="og:title" content="{page_title}">
+<meta property="og:description" content="{page_desc}">
 <meta property="og:site_name" content="{SITE_NAME}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +102,7 @@ fbq('track', 'PageView');
 {rc}<script type="application/ld+json">
 {json.dumps(ld, indent=1)}
 </script>
-{checker_css}</head>
+{TRANSPARENCY_STYLE}{checker_css}</head>
 <body>
 """
 
@@ -120,7 +132,8 @@ def cta(place="your Ventura County property", trackc=False):
 <h2 class="zz-cta-title">Support is available for {place}</h2>
 <p>Grant programs and free defensible-space guidance exist for mountain communities, and a free assessment shows what applies to your parcel before you spend anything. No pressure, no obligation.</p>
 <a href="/assistance/" class="zz-btn">See assistance programs</a>
-<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">request a free assessment</a>.</p>
+<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
+          <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span> or <a class="zz-cta-tel" href="/find-contractor/">request a free assessment</a>.</p>
 </div>
 </section>
 """
@@ -129,7 +142,8 @@ def cta(place="your Ventura County property", trackc=False):
 <h2 class="zz-cta-title">Find out what {place} needs</h2>
 <p>A free assessment tells you exactly which Zone Zero requirements apply to your parcel, what your local fire authority will look for, and what to fix first. 100% free, no obligation.</p>
 <a href="/find-contractor/" class="zz-btn">Connect with a Licensed Contractor</a>
-<p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
+<p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
+          <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span></p>
 </div>
 </section>
 """
@@ -172,10 +186,13 @@ def footer(checker=False):
 <li><a href="https://www.zonezerosandiego.com">Zone Zero San Diego</a></li>
 <li><a href="/resources/">Official resources</a></li>
 <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
 </ul>
 </div>
 </div>
 <div class="zz-footer-bottom">
+      <p class="zz-operator-line">{OPERATOR_PLACE} is published by Firewise Fences, Inc. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of {CITY_PLACE}, the County, CAL FIRE, or any fire department. Firewise Fences, Inc. is not a contractor. Assessments and installations are performed by independent CSLB-licensed local contractors, and we may receive compensation when we connect you with a contractor.</p>
 <p>&copy; 2026 Zone Zero Ventura. Educational information, not legal advice. Regulations change: verify requirements with your local fire authority before making decisions. Questions? Call {PHONE_DISPLAY}.</p>
 </div>
 </div>
@@ -215,7 +232,7 @@ def faq_html(faqs, heading):
     out.append('</div></section>')
     return "\n".join(out)
 
-def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False, checker=False):
+def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False, checker=False, html_title=None, html_desc=None):
     """path like '/deadlines/' -> deadlines/index.html ; '/' -> index.html ; '/404.html' special.
     checker=True inserts the zone-checker widget right after this page's own
     </header> — home page only, mirrors zone-zero-checker-api's patch()."""
@@ -225,7 +242,7 @@ def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=
         if body.count("</header>") != 1:
             raise ValueError(f"checker=True on {path} expected exactly one </header> in body, found {body.count('</header>')}")
         body = body.replace("</header>", "</header>\n" + checker_section(), 1)
-    html = head(title, desc, path, ld, recaptcha, depth, checker) + nav() + body
+    html = head(title, desc, path, ld, recaptcha, depth, checker, html_title=html_title, html_desc=html_desc) + nav() + body
     if faqs:
         html += faq_html(faqs, f"Quick answers")
     if cta_place is not None:
