@@ -12,13 +12,47 @@ GA4 = "G-X43DDVCW9W"
 PIXEL = "838658782511294"
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Zone checker widget (hosted on zone-zero-checker-api.netlify.app; nothing
+# bundled here). Home page only. Values match this site's entry in
+# zone-zero-checker-api's config/network-site-checker.json.
+CHECKER_CSS_HREF = "https://zone-zero-checker-api.netlify.app/zz-checker.css"
+CHECKER_JS_SRC = "https://zone-zero-checker-api.netlify.app/zz-checker.js"
+CHECKER_API_URL = "https://zone-zero-checker-api.netlify.app/api/zone-checker/v2"
+CHECKER_CITY_DISPLAY_NAME = "Ventura County"
+CHECKER_CTA_HREF = "/find-contractor/#zz-find-contractor"
+CHECKER_LA_COUNTY_OVERLAY_APPLIES = False
+
+def checker_section():
+    overlay_clause = (
+        " For Los Angeles County properties, the county’s 2025 overlay takes precedence over the statewide map."
+        if CHECKER_LA_COUNTY_OVERLAY_APPLIES else
+        " County-level overlays take precedence over the statewide map where one applies."
+    )
+    return f"""
+<!-- ================= ZONE CHECKER ================= -->
+<section style="background:#fff" aria-labelledby="zone-checker-heading">
+  <div class="zz-container">
+    <div class="zz-center zz-reveal" style="margin-bottom:36px">
+      <span class="zz-eyebrow">Check Your Address</span>
+      <h2 class="zz-h2" id="zone-checker-heading">Is your {CHECKER_CITY_DISPLAY_NAME} property in the Very High zone?</h2>
+      <p class="zz-body" style="margin:0 auto;max-width:56ch">Enter your address to check it against the CAL FIRE statewide Fire Hazard Severity Zone map.{overlay_clause}</p>
+    </div>
+    <div data-zz-checker
+         data-api-url="{CHECKER_API_URL}"
+         data-cta-href="{CHECKER_CTA_HREF}"
+         data-cta-label="Get Your Free Assessment"
+         data-default-city="{CHECKER_CITY_DISPLAY_NAME}"></div>
+  </div>
+</section>"""
+
 FONTS = "https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
 
-def head(title, desc, path, ld, recaptcha=False, depth=1):
+def head(title, desc, path, ld, recaptcha=False, depth=1, checker=False):
     pre = "../" * depth if depth else ""
     url = DOMAIN + path
     rc = ('<script src="https://www.google.com/recaptcha/api.js?render='
           '6Lfh4U4tAAAAALuYKhSwIpggriOhdKqEsj6XBFo6"></script>\n') if recaptcha else ""
+    checker_css = f'<link rel="stylesheet" href="{CHECKER_CSS_HREF}">\n' if checker else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +90,7 @@ fbq('track', 'PageView');
 {rc}<script type="application/ld+json">
 {json.dumps(ld, indent=1)}
 </script>
-</head>
+{checker_css}</head>
 <body>
 """
 
@@ -100,7 +134,8 @@ def cta(place="your Ventura County property", trackc=False):
 </section>
 """
 
-def footer():
+def footer(checker=False):
+    checker_script = f'<script src="{CHECKER_JS_SRC}" defer></script>\n' if checker else ""
     return f"""<footer class="zz-footer">
 <div class="zz-container">
 <div class="zz-footer-grid">
@@ -146,7 +181,7 @@ def footer():
 </div>
 </footer>
 <script src="/js/site.js"></script>
-</body>
+{checker_script}</body>
 </html>
 """
 
@@ -180,16 +215,22 @@ def faq_html(faqs, heading):
     out.append('</div></section>')
     return "\n".join(out)
 
-def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False):
-    """path like '/deadlines/' -> deadlines/index.html ; '/' -> index.html ; '/404.html' special."""
+def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False, checker=False):
+    """path like '/deadlines/' -> deadlines/index.html ; '/' -> index.html ; '/404.html' special.
+    checker=True inserts the zone-checker widget right after this page's own
+    </header> — home page only, mirrors zone-zero-checker-api's patch()."""
     ld = base_ld(title, desc, path, crumbs, faqs, area)
     depth = 0 if path in ("/", "/404.html") else 1
-    html = head(title, desc, path, ld, recaptcha, depth) + nav() + body
+    if checker:
+        if body.count("</header>") != 1:
+            raise ValueError(f"checker=True on {path} expected exactly one </header> in body, found {body.count('</header>')}")
+        body = body.replace("</header>", "</header>\n" + checker_section(), 1)
+    html = head(title, desc, path, ld, recaptcha, depth, checker) + nav() + body
     if faqs:
         html += faq_html(faqs, f"Quick answers")
     if cta_place is not None:
         html += cta(cta_place, trackc)
-    html += footer()
+    html += footer(checker)
     if path == "/":
         fp = os.path.join(OUT, "index.html")
     elif path == "/404.html":
