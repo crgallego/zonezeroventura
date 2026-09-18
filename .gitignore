@@ -1,0 +1,23 @@
+# Secrets — never commit credentials
+.env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key
+*credentials*.json
+service-account*.json
+
+# Dependencies
+node_modules/
+
+# Build / deploy output
+dist/
+.netlify/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
