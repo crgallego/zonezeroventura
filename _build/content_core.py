@@ -125,7 +125,7 @@ def build(write_page):
 """
     write_page("/", "Zone Zero Ventura County | Zone 0 Ember-Resistant Requirements, Community by Community",
                "Zone Zero (Zone 0) requirements for Ventura County: the Mountain Fire and Thomas Fire communities, the Ojai Valley, and the eastern Very High cities, with the county's two fire authorities explained.",
-               home_body, [("Home", "/")], home_faqs, "Ventura County, California", cta_place="your Ventura County property")
+               home_body, [("Home", "/")], home_faqs, "Ventura County, California", cta_place="your Ventura County property", checker=True)
 
     # ---------------- FIND CONTRACTOR ----------------
     fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Connect with a Licensed Contractor</p></div>
