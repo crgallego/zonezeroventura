@@ -6,6 +6,7 @@ import json, os, re
 
 DOMAIN = "https://www.zonezeroventura.com"
 SITE_NAME = "Zone Zero Ventura"
+FOOTER_GEOGRAPHY = "Ventura County homeowners, from the Ojai foothills to the coast"
 PHONE_TEL = "+18055678416"
 PHONE_DISPLAY = "(805) 567-8416"
 GA4 = "G-X43DDVCW9W"
@@ -151,7 +152,7 @@ def footer(checker=False):
 <div class="zz-footer-grid">
 <div class="zz-footer-about">
 <h4>Zone Zero Ventura</h4>
-<p>Plain-English guidance on California's Zone Zero ember-resistant zone requirements for Orange County homeowners, from the Santa Ana canyons to the coast. Independent educational resource. Not a government agency.</p>
+<p>Plain-English guidance on California's Zone Zero ember-resistant zone requirements for {FOOTER_GEOGRAPHY}. Independent educational resource. Not a government agency.</p>
 </div>
 <div>
 <h4>Guides</h4>
