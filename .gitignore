@@ -21,3 +21,7 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Python bytecode — do not publish compiled generator strings
+__pycache__/
+*.pyc
