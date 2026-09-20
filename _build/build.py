@@ -128,9 +128,9 @@ def cta(place="your Ventura County property", trackc=False):
         return f"""<section class="zz-cta zz-cta-trackc">
 <div class="zz-container">
 <h2 class="zz-cta-title">Support is available for {place}</h2>
-<p>Grant programs and free defensible-space guidance exist for mountain communities, and a free assessment shows what applies to your parcel before you spend anything. No pressure, no obligation.</p>
+<p>Grant programs and free defensible-space guidance exist for mountain communities. Verify current openings through official channels before spending.</p>
 <a href="/assistance/" class="zz-btn">See assistance programs</a>
-<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">request a free assessment</a>
+<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">get in touch</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
 </section>
@@ -138,7 +138,7 @@ def cta(place="your Ventura County property", trackc=False):
     return f"""<section class="zz-cta">
 <div class="zz-container">
 <h2 class="zz-cta-title">Find out what {place} needs</h2>
-<p>A free assessment tells you which local rules apply to your parcel, what your fire authority will look for, and what to fix first. 100% free, no obligation.</p>
+<p>Submit your address and we will follow up about which local rules apply to your parcel, what your fire authority will look for, and what to fix first.</p>
 <a href="/find-contractor/" class="zz-btn">Connect with a Specialist</a>
 <p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span></p>
@@ -190,7 +190,7 @@ def footer(checker=False):
 </div>
 </div>
 <div class="zz-footer-bottom">
-      <p class="zz-operator-line">Zone Zero Ventura County is published by Firewise Fences, Inc. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Firewise Fences, Inc. is not a contractor. Assessments and installations are performed by independent CSLB-licensed local contractors, and we may receive compensation when we connect you with a contractor.</p>
+      <p class="zz-operator-line">Zone Zero Ventura County is published by Firewise Fences, Inc. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Firewise Fences, Inc. is not a contractor.</p>
 <p>&copy; 2026 Zone Zero Ventura. Educational information, not legal advice. Regulations change: verify requirements with your local fire authority before making decisions. Questions? Call {PHONE_DISPLAY}.</p>
 </div>
 </div>
@@ -204,7 +204,7 @@ def base_ld(title, desc, path, crumbs, faqs=None, area=None, service=False):
     graph = [
         {"@type": "Organization", "@id": "https://zonezerocalifornia.com/#org",
          "name": "Zone Zero California", "url": "https://zonezerocalifornia.com",
-         "description": "An independent educational resource on wildfire home hardening and local Zone 0 rules in California. Free assessments and referrals to CSLB-licensed local specialists."},
+         "description": "An independent educational resource on wildfire home hardening and local Zone 0 rules in California."},
         {"@type": "WebSite", "@id": DOMAIN + "/#website", "url": DOMAIN + "/",
          "name": SITE_NAME, "publisher": {"@id": "https://zonezerocalifornia.com/#org"}},
     ]
@@ -221,12 +221,11 @@ def base_ld(title, desc, path, crumbs, faqs=None, area=None, service=False):
         graph.append({
             "@type": "Service",
             "@id": DOMAIN + "/#service",
-            "name": "Zone Zero Compliance Assessments and Specialist Referrals",
-            "serviceType": "Wildfire home hardening compliance assessment",
+            "name": "Zone Zero information",
+            "serviceType": "Wildfire home hardening information",
             "provider": {"@id": "https://zonezerocalifornia.com/#org"},
             "areaServed": served,
-            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD",
-                       "description": "Free property assessment and referral to a CSLB-licensed specialist."},
+
         })
     items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": DOMAIN + p}
              for i, (n, p) in enumerate(crumbs)]

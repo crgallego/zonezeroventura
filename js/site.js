@@ -76,7 +76,7 @@
         if (status) {
           status.style.display = 'block';
           status.style.color = '#33502E';
-          status.textContent = 'Thank you. We\'ll review your property and contact you with a follow-up to talk through your Zone 0 options and, if you\'d like, connect you with an independent CSLB-licensed specialist.';
+          status.textContent = 'Thank you. We\'ll review your property and follow up to talk through your Zone 0 options.';
         }
         if (btn) { btn.textContent = 'Request sent'; }
       }).catch(function () {
@@ -85,7 +85,7 @@
           status.style.color = '#BF0A30';
           status.textContent = 'Something went wrong sending your request. Please try again, or call (805) 567-8416.';
         }
-        if (btn) { btn.disabled = false; btn.textContent = 'Request my free assessment'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'Submit'; }
       });
     });
   }
