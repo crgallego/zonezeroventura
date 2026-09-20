@@ -76,7 +76,7 @@
         if (status) {
           status.style.display = 'block';
           status.style.color = '#33502E';
-          status.textContent = 'Thank you. We\'ll review your property and contact you within one business day to talk through your Zone 0 options and, if you\'d like, connect you with an independent CSLB-licensed contractor.';
+          status.textContent = 'Thank you. We\'ll review your property and contact you with a follow-up to talk through your Zone 0 options and, if you\'d like, connect you with an independent CSLB-licensed specialist.';
         }
         if (btn) { btn.textContent = 'Request sent'; }
       }).catch(function () {
