@@ -190,7 +190,7 @@ def footer(checker=False):
 </div>
 </div>
 <div class="zz-footer-bottom">
-      <p class="zz-operator-line">Zone Zero Ventura County is published by Firewise Fences, Inc. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Firewise Fences, Inc. is not a contractor.</p>
+      <p class="zz-operator-line">Zone Zero Ventura County is published by Zone Zero Property Inspections. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Zone Zero Property Inspections is not a contractor.</p>
 <p>&copy; 2026 Zone Zero Ventura. Educational information, not legal advice. Regulations change: verify requirements with your local fire authority before making decisions. Questions? Call {PHONE_DISPLAY}.</p>
 </div>
 </div>
