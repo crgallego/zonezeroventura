@@ -58,7 +58,7 @@ loc("ojai", "Ojai", "city", "Very High",
     [("Did Ojai's fire designation really triple?",
       "The city's Very High acreage more than tripled in the 2025 remap, as reported by The Acorn. For a town ringed by wildland on nearly every side, the updated modeling formalized what the geography always said."),
      ("Does Zone Zero mean removing Ojai's oaks?",
-      "No. The April 2026 draft scaled back blanket vegetation restrictions after statewide concern about mature trees, and local rules may allow well-maintained trees. Verify with VCFD before removing anything; the clear requirement is a noncombustible first five feet at the structure."),
+      "No. The withdrawn statewide draft is not in force, and it is not a mandate to remove healthy oaks. Inside VCFPD, local Zone 0 is Required now for new buildings, additions, and new or refurbished landscape. For existing homes the first five feet is Recommended now. Verify with VCFD before removing anything."),
      ("What did the Thomas Fire do to Ojai?",
       "It burned the valley's surrounding ridges in December 2017 and put the town through encirclement and evacuation, though Ojai was spared the concentrated structure loss Ventura's hillsides suffered. The memory shapes the valley's preparation culture to this day.")],
     "the valley the fire circled"),
@@ -172,7 +172,9 @@ PHONE = "(805) 567-8416"
 def build(write_page):
     for d in L:
         path = f"/{d['slug']}/"
-        title = f"Zone Zero in {d['name']}, CA | {d['ahj']} Requirements | Zone Zero Ventura"
+        title = (f"Zone Zero in {d['name']}, CA | {d['ahj']} | Zone Zero Ventura"
+                 if "Fillmore" in d["ahj"] else
+                 f"Zone Zero in {d['name']}, CA | {d['ahj']} Requirements | Zone Zero Ventura")
         if "Fillmore" in d["ahj"]:
             desc = ("Zone Zero (Zone 0) status for Fillmore: Fillmore Fire is the AHJ inside city limits. VCFD Station 27 is unincorporated/cooperator only. Statewide Zone 0 is Proposed — not in force.")
         else:

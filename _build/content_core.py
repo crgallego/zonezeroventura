@@ -217,7 +217,7 @@ def build(write_page):
         ("Is Zone 0 the same thing as defensible space?",
          "Zone 0 is the newest and strictest part of defensible space. California already required Zones 1 and 2 (5 to 30 feet, and 30 to 100 feet). Zone Zero adds the 0 to 5 foot ember-resistant ring, because post-fire research shows embers igniting material right against the structure is how most homes are lost. The Thomas Fire's single-night destruction of 500+ Ventura residences is the local case study."),
         ("What happens if I don't comply?",
-         "Under the April 2026 draft, enforcement is education-first: your fire authority inspects, notifies, and works with you on corrections before penalties come into play. In this county that's VCFD or, inside the City of Ventura, the city's own department."),
+         "There is no statewide Zone 0 regulation in force. OAL emergency filing 2026-0828-03E was withdrawn September 8, 2026. Existing defensible-space law still applies. Inside VCFPD, local Zone 0 for new buildings, additions, and new or refurbished landscape is Required now. Your fire authority — VCFD, or the City of Ventura's own department inside city limits — inspects under its local programs."),
     ]
     reg_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Regulations</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
@@ -303,7 +303,7 @@ def build(write_page):
 <h2 class="zz-h2">The five-foot ring, replanted</h2>
 <p><b>Out:</b> bark and wood-chip mulch, juniper and other resinous shrubs, climbing vegetation on walls, and plantings under eaves and vents.</p>
 <p><b>In:</b> gravel and decomposed granite, pavers and stone, low succulents in noncombustible beds where your authority allows plantings, and clean hardscape paths that double as access.</p>
-<p><b>On trees, honestly:</b> homeowners across California pushed back on early drafts precisely because mature trees provide needed shade, and the state responded. Current draft statewide language is more permissive than the headlines suggested, and local rules may allow well-maintained trees near the home. In Ojai, Meiners Oaks, and Oak View, where the oak canopy is the valley's identity, do not preemptively remove a healthy tree; verify with the Ventura County Fire Department first. Inside the City of Ventura, ask the city's own department.</p>
+<p><b>On trees, honestly:</b> homeowners across California pushed back on early drafts precisely because mature trees provide needed shade, and the state responded. The withdrawn statewide draft is not in force. Local rules may allow well-maintained trees near the home. In Ojai, Meiners Oaks, and Oak View, where the oak canopy is the valley's identity, do not preemptively remove a healthy tree; verify with the Ventura County Fire Department first. Inside the City of Ventura, ask the city's own department.</p>
 </div></section>
 <section style="padding-top:0"><div class="zz-container">
 <p class="zz-eyebrow">Beyond five feet</p>
@@ -387,11 +387,11 @@ def build(write_page):
     # ---------------- ASSISTANCE ----------------
     as_faqs = [
         ("Is there financial help for Zone Zero compliance?",
-         "Programs exist and are growing as the deadlines approach. California has funded defensible-space and home-hardening grant pilots, and AB 1455 (2025) touches implementation funding. Availability is program-by-program and changes often, so verify current openings through the official resources on this page before planning around a grant."),
+         "Programs exist and change as local and state cycles open. California has funded defensible-space and home-hardening grant pilots, and AB 1455 (2025) touches implementation funding. Availability is program-by-program and changes often, so verify current openings through the official resources on this page before planning around a grant."),
         ("Where should Ventura County homeowners start?",
          "With your fire authority: VCFD for most of the county, the Ventura City Fire Department inside city limits. Then CAL FIRE's grant channels at fire.ca.gov, and the county's fire-safe community organizations. The Thomas and Mountain fire recovery periods both built local support infrastructure worth asking about."),
         ("What if I can't afford compliance work right now?",
-         "Start with the free assessment so you know your actual scope: many properties need less than feared, and the highest-impact items (clearing stored combustibles from the 5-foot ring, swapping mulch for gravel) cost little. Phased deadlines mean existing homes have runway, and education-first enforcement credits progress."),
+         "Start with the free assessment so you know your actual scope: many properties need less than feared, and the highest-impact items (clearing stored combustibles from the 5-foot ring, swapping mulch for gravel) cost little. There is no statewide Zone 0 deadline in force. Start with the free assessment so you know the actual scope, and education-first local inspections credit progress."),
     ]
     as_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Assistance</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
@@ -436,7 +436,7 @@ def build(write_page):
 <li><b>IBHS</b> (ibhs.org): the ember-intrusion research underlying the ember-resistant zone standard.</li>
 <li><b>Statewide context:</b> <a href="https://zonezerocalifornia.com">Zone Zero California</a>, the network's statewide guide and zone checker.</li>
 </ul>
-<p><b>Regulations move.</b> Final Zone Zero rules are expected in late 2026, and local adoptions continue. Anything time-sensitive on this site should be verified against these sources before you make decisions.</p>
+<p><b>Regulations move.</b> As of September 19, 2026 there is no statewide Zone 0 regulation in force. Local adoptions and existing defensible-space rules still apply. Anything time-sensitive on this site should be verified against these sources before you make decisions.</p>
 </div></section>
 """
     write_page("/resources/", "Official Resources | Statutes, Maps &amp; Fire Authorities | Zone Zero Ventura",

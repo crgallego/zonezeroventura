@@ -92,7 +92,7 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={PIXEL}&ev=PageView&noscript=1"></noscript>
 {rc}<script type="application/ld+json">
-{json.dumps(ld, indent=1)}
+{json.dumps(ld, indent=1, ensure_ascii=False)}
 </script>
 <style id="zz-transparency">
 .zz-phone-disclosure{{display:block;font-size:12px;line-height:1.45;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none;max-width:46ch;opacity:.9}}
@@ -217,7 +217,7 @@ def base_ld(title, desc, path, crumbs, faqs=None, area=None, service=False):
         page["about"] = {"@id": DOMAIN + "/#service"}
     graph.append(page)
     if service:
-        served = {"@type": "Place", "name": area} if area else {"@type": "AdministrativeArea", "name": "Ventura County"}
+        served = {"@type": "Place", "name": area} if area else {"@type": "AdministrativeArea", "name": "Ventura County, California"}
         graph.append({
             "@type": "Service",
             "@id": DOMAIN + "/#service",
