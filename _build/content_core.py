@@ -50,7 +50,7 @@ def build(write_page):
 <h1>Which fire department covers my <em>Ventura County</em> parcel?</h1>
 <p class="zz-hero-sub"><b>Start with the fire department, not a statewide calendar.</b> VCFPD covers most cities and unincorporated land. The City of Ventura and Fillmore have their own fire departments. Zone 0 is the first five feet. Statewide it is Proposed — not in force. Inside VCFPD, local Zone 0 is Required now for new buildings, additions, and new or refurbished landscape.</p>
 <div class="zz-hero-btns">
-<a href="/find-contractor/" class="zz-btn zz-btn-sand">Get a free Zone 0 assessment</a>
+<a href="/find-contractor/" class="zz-btn zz-btn-sand">Check your address</a>
 <a href="/regulations/" class="zz-btn zz-btn-ghost">Read the requirements</a>
 </div>
 </div></div>{HARBOR_SVG}</header>
@@ -59,7 +59,7 @@ def build(write_page):
 <div class="zz-trust-item"><b>Required now</b><span>Defensible space; VCFPD Zone 0 for new work</span></div>
 <div class="zz-trust-item"><b>Proposed — not in force</b><span>Statewide Zone 0 as of Sep 19, 2026</span></div>
 <div class="zz-trust-item"><b>59,000 parcels</b><span>of 86,000 mapped Very High in 2025</span></div>
-<div class="zz-trust-item"><b>100% free</b><span>Assessments, no obligation</span></div>
+<div class="zz-trust-item"><b>Address check</b><span>No email required to check</span></div>
 </div></div></div>
 <section class="zz-dark"><div class="zz-container">
 <p class="zz-eyebrow">The county's record</p>
@@ -130,21 +130,21 @@ def build(write_page):
     # ---------------- FIND CONTRACTOR ----------------
     fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Connect with a Specialist</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
-<h1>Connect with a licensed Zone Zero specialist in <em>Ventura County</em></h1>
-<p class="zz-hero-sub">Tell us where your property is. A licensed specialist reviews your parcel's hazard designation, the local fire authority, and what is Required now versus Proposed — not in force versus Recommended now. Free, no obligation.</p>
+<h1>Tell us about your <em>Ventura County</em> property</h1>
+<p class="zz-hero-sub">Tell us where your property is. </p>
 </div></div>{HARBOR_SVG}</header>
-<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> Zone Zero work in the 0 to 5 foot ember-resistant zone often involves fencing, gates, hardscape, and vegetation changes. Hired fence work at $1,000 or more in labor and materials, a permit, or hired workers typically requires a CSLB-licensed contractor (Class C-13 for fencing); owner-builder and minor-work exemptions can apply. The assessment below is free and connects you with licensed specialists who work in Ventura County, from the Ojai Valley to the Conejo Valley.</div></div>
+<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> Zone Zero work in the 0 to 5 foot ember-resistant zone often involves fencing, gates, hardscape, and vegetation changes. Hired fence work at $1,000 or more in labor and materials, a permit, or hired workers typically requires a CSLB-licensed contractor (Class C-13 for fencing); owner-builder and minor-work exemptions can apply.</div></div>
 <section><div class="zz-container" style="display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start" id="zz-fc-grid">
 <div>
 <h2 class="zz-h2">What happens after you submit</h2>
 <p><b>1. We check your parcel.</b> Your address is matched against CAL FIRE's 2025 Fire Hazard Severity Zone maps and your community's adopted local map. With 59,000 of the county's 86,000 mapped parcels now Very High, the answer is yes more often than most homeowners expect, and a parcel-level check beats a guess.</p>
 <p><b>2. You get a plain-English rundown.</b> Which tier you're in, which Zone 0 requirements apply, what your fire authority (VCFD or the Ventura City Fire Department) will look for, and what is Required now versus Proposed — not in force versus Recommended now for you.</p>
-<p><b>3. If work is needed, you're connected with a licensed specialist.</b> Fence and gate replacement in the 0 to 5 foot zone is the most common project. All referrals are CSLB-licensed. You choose who you hire, always.</p>
+
 <p>Prefer to talk it through? Call <a href="tel:{PHONE_TEL}"><b>{PHONE}</b></a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
 <form id="zz-find-contractor" class="zz-form" data-webhook="" novalidate>
-<h2 class="zz-h3" style="font-size:22px">Request my free assessment</h2>
+<h2 class="zz-h3" style="font-size:22px">Submit your property</h2>
 <label for="first_name">First name</label>
 <input id="first_name" name="first_name" type="text" autocomplete="given-name" required>
 <label for="last_name">Last name</label>
@@ -163,7 +163,7 @@ def build(write_page):
 <input type="checkbox" name="consent" required>
 <span><strong>Yes — connect me with a specialist.</strong> I am asking Firewise Fences, Inc. to share my name, phone number, email address, and property address with an independent CSLB-licensed contractor so that contractor can contact me about a Zone 0 assessment. I agree that contractor and Firewise Fences, Inc. may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
 </label>
-<button type="submit">Request my free assessment</button>
+<button type="submit">Submit</button>
 <p class="zz-form-note">Your request goes to our team for review.</p>
 <p class="zz-form-status" role="status"></p>
 <p class="zz-disclosure">Disclosure: this network's operator also owns a fence contracting company, and fence inquiries may be referred to it. You are never obligated to use it, and you're free to choose any licensed contractor. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
@@ -171,8 +171,8 @@ def build(write_page):
 </div></section>
 <style>@media (max-width:767px){{#zz-fc-grid{{grid-template-columns:1fr !important}}}}</style>
 """
-    write_page("/find-contractor/", "Connect with a Licensed Zone Zero Specialist in Ventura County | Zone Zero Ventura",
-               "Connect with a CSLB-licensed local specialist for Zone Zero work in Ventura County. Free assessment: we check the fire department, local Zone 0 status, and the first five feet. Statewide Zone 0 is Proposed — not in force.",
+    write_page("/find-contractor/", "Ventura County property follow-up | Zone Zero Ventura",
+               "Ventura County Zone 0 follow-up: fire department, local Zone 0 status, and the first five feet. Statewide Zone 0 is Proposed — not in force.",
                fc_body, [("Home", "/"), ("Connect with a Specialist", "/find-contractor/")],
                recaptcha=True, cta_place=None)
 
@@ -257,7 +257,7 @@ def build(write_page):
         ("What fence materials count as ember-resistant?",
          "Noncombustible materials: steel, aluminum, masonry, and certain composites rated for the application. Standard wood fencing attached to the house is the highest-leverage retrofit where a local Zone 0 rule applies, and Recommended now everywhere else."),
         ("Who can legally do fence work in California?",
-         "Hired fence work at $1,000 or more in labor and materials, work that needs a permit, or work that uses hired workers typically requires a CSLB license (Class C-13 for fencing). Owner-builder and minor-work exemptions can apply. Any referral through this site is CSLB-licensed, and the free assessment is how to start."),
+         "Hired fence work at $1,000 or more in labor and materials, work that needs a permit, or work that uses hired workers typically requires a CSLB license (Class C-13 for fencing). Owner-builder and minor-work exemptions can apply."),
     ]
     fence_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Fences &amp; Gates</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
@@ -270,7 +270,7 @@ def build(write_page):
 <h2 class="zz-h2">A wood fence is a fuse connected to your house</h2>
 <p><b>Ember research shows the mechanism plainly:</b> embers land in a wood fence line, the fence ignites, and the flame walks the fence straight to the wall. In the neighborhoods the Thomas Fire burned through in a single December night, and in Camarillo Heights during the Mountain Fire, house-to-house spread through connected fuels was part of how the losses compounded. That is why fence work in the first five feet is the usual first project, whether a local Zone 0 rule requires it now or it is Recommended now.</p>
 <p><b>The common retrofit is smaller than people fear.</b> Replace the final 5 feet where the fence meets the structure with a noncombustible panel or metal gate, and the rest of the run can stay. Hillside parcels in Ventura and Ojai often have the added wrinkle of fencing that steps down a slope toward wildland; the assessment maps which sections actually sit in the zone.</p>
-<p>Costs vary by material and run length, and any quote should come from a licensed contractor after seeing the property. The <a href="/find-contractor/">free assessment</a> is the honest starting point: it tells you how many linear feet are actually in the zone before anyone talks price.</p>
+<p>Costs vary by material and run length, and a quote depends on seeing the property. Count how many linear feet are actually in the zone before anyone talks price.</p>
 </div></section>
 <section style="padding-top:0"><div class="zz-container">
 <p class="zz-eyebrow">Beyond the fence</p>
@@ -308,7 +308,7 @@ def build(write_page):
 <section style="padding-top:0"><div class="zz-container">
 <p class="zz-eyebrow">Beyond five feet</p>
 <h2 class="zz-h2">Where landscaping meets wildland</h2>
-<p>On the hillsides above Ventura, along the Ojai Valley's edges, and on the Camarillo hills, Zone 0 is only the innermost ring: Zones 1 and 2 (5 to 30 and 30 to 100 feet) still govern the broader property. The <a href="/find-contractor/">free assessment</a> covers all three zones, so wildland-edge homeowners see the full picture, not just the first five feet.</p>
+<p>On the hillsides above Ventura, along the Ojai Valley's edges, and on the Camarillo hills, Zone 0 is only the innermost ring: Zones 1 and 2 (5 to 30 and 30 to 100 feet) still govern the broader property. Wildland-edge homeowners need the full picture, not just the first five feet.</p>
 </div></section>
 """
     write_page("/landscaping/", "Zone Zero Landscaping Rules | Trees, Mulch &amp; the 5-Foot Ring | Ventura County",
@@ -342,7 +342,7 @@ def build(write_page):
 <li><b>5. Class A roofing</b> at replacement time. If your roof is due anyway, this is when.</li>
 <li><b>6. Dual-pane, tempered-glass windows</b> on exposures facing fuel.</li>
 </ul>
-<p>The Thomas Fire took more than 500 Ventura residences in one night; the Mountain Fire took at least 83 homes in Camarillo Heights in 2024. Hardening plus Zone 0 is what survivability looks like when the next wind event comes. The <a href="/find-contractor/">free assessment</a> covers both.</p>
+<p>The Thomas Fire took more than 500 Ventura residences in one night; the Mountain Fire took at least 83 homes in Camarillo Heights in 2024. Hardening plus Zone 0 is what survivability looks like when the next wind event comes.</p>
 </div></section>
 """
     write_page("/home-hardening/", "Home Hardening Guide | Vents, Eaves, Roofing &amp; Decks | Zone Zero Ventura",
@@ -391,14 +391,14 @@ def build(write_page):
         ("Where should Ventura County homeowners start?",
          "With your fire authority: VCFD for most of the county, the Ventura City Fire Department inside city limits. Then CAL FIRE's grant channels at fire.ca.gov, and the county's fire-safe community organizations. The Thomas and Mountain fire recovery periods both built local support infrastructure worth asking about."),
         ("What if I can't afford compliance work right now?",
-         "Start with the free assessment so you know your actual scope: many properties need less than feared, and the highest-impact items (clearing stored combustibles from the 5-foot ring, swapping mulch for gravel) cost little. Phased deadlines mean existing homes have runway, and education-first enforcement credits progress."),
+         "Start with the address check so you know your actual scope: many properties need less than feared, and the highest-impact items (clearing stored combustibles from the 5-foot ring, swapping mulch for gravel) cost little. Phased deadlines mean existing homes have runway, and education-first enforcement credits progress."),
     ]
     as_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Assistance</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
 <h1>Help paying for Zone 0 compliance <em>exists</em>. Here's how to find it.</h1>
 <p class="zz-hero-sub">Grant channels, agency guidance, and low-cost first steps for Ventura County homeowners.</p>
 </div></div>{HARBOR_SVG}</header>
-<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> Assistance for Zone Zero work comes through state grant channels, your fire authority's programs, and free assessments. Program availability changes frequently: verify current openings through official channels before planning around any grant.</div></div>
+<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> Assistance for Zone Zero work comes through state grant channels and your fire authority's programs. Program availability changes frequently: verify current openings through official channels before planning around any grant.</div></div>
 <section><div class="zz-container">
 <p class="zz-eyebrow">Where to look</p>
 <h2 class="zz-h2">Assistance channels, in order</h2>
@@ -406,7 +406,7 @@ def build(write_page):
 <li><b>Your fire authority first.</b> The Ventura County Fire Department serves the contract cities and unincorporated communities with defensible-space guidance; City of Ventura homeowners start with the city's own department.</li>
 <li><b>State programs.</b> CAL FIRE administers defensible-space and home-hardening grant funding as it's appropriated. Check current cycles at fire.ca.gov.</li>
 <li><b>Community fire-safe organizations.</b> The recovery periods after the Thomas and Mountain fires built local support networks; ask your fire authority what's currently active in your area.</li>
-<li><b>The free assessment.</b> Knowing your real scope is itself financial protection: it stops you from over-buying work you don't need. <a href="/find-contractor/">Request one here.</a></li>
+<li><b>Know the real scope.</b> Knowing your real scope is itself financial protection: it stops you from over-buying work you don't need. <a href="/find-contractor/">Get in touch.</a></li>
 <li><b>Low-cost first moves.</b> Rehoming stored firewood beyond the 5-foot ring and swapping bark mulch for gravel are weekend projects that close the biggest ember pathways.</li>
 </ul>
 <p><b>A note on honesty:</b> we don't list specific dollar amounts or name grant programs we haven't verified as currently open, because funding cycles close. The <a href="/resources/">resources page</a> links the official sources that stay current.</p>
@@ -468,7 +468,7 @@ def build(write_page):
     <h2>What we collect</h2>
     <p>When you use our forms, compliance checker, or phone line, we may collect: your name, email address, phone number, property address or city, and information you provide about your property. Our phone line is answered by an automated AI assistant; calls may be recorded and transcribed. We also collect standard usage data through cookies and similar technologies, including via Google Analytics and the Meta (Facebook) pixel.</p>
     <h2>How we use it</h2>
-    <p>We use this information to operate the site, respond to your requests, provide the compliance guide, and — when you ask us to — connect you with an independent CSLB-licensed local contractor for an assessment. We may receive compensation for those connections.</p>
+    <p>We use this information to operate the site, respond to your requests, and provide the compliance guide.</p>
     <h2>Who we share it with</h2>
     <p>If you request a contractor connection, we share your contact and property information with the contractor(s) who will follow up. We also use service providers (hosting, analytics, advertising, and workflow automation) that process data on our behalf. We do not sell your personal information to unrelated third parties.</p>
     <h2>Your choices</h2>
