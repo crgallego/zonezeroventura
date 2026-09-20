@@ -21,6 +21,7 @@ CHECKER_JS_SRC = "https://zone-zero-checker-api.netlify.app/zz-checker.js"
 CHECKER_API_URL = "https://zone-zero-checker-api.netlify.app/api/zone-checker/v2"
 CHECKER_CITY_DISPLAY_NAME = "Ventura County"
 CHECKER_CTA_HREF = "/find-contractor/#zz-find-contractor"
+CHECKER_CTA_LABEL = "Connect with a Specialist"
 CHECKER_LA_COUNTY_OVERLAY_APPLIES = False
 
 def checker_section():
@@ -35,13 +36,13 @@ def checker_section():
   <div class="zz-container">
     <div class="zz-center zz-reveal" style="margin-bottom:36px">
       <span class="zz-eyebrow">Check Your Address</span>
-      <h2 class="zz-h2" id="zone-checker-heading">Is your {CHECKER_CITY_DISPLAY_NAME} property in the Very High zone?</h2>
-      <p class="zz-body" style="margin:0 auto;max-width:56ch">Enter your address to check it against the CAL FIRE statewide Fire Hazard Severity Zone map.{overlay_clause}</p>
+      <h2 class="zz-h2" id="zone-checker-heading">Which fire department covers this {CHECKER_CITY_DISPLAY_NAME} parcel?</h2>
+      <p class="zz-body" style="margin:0 auto;max-width:56ch">Enter your address to check it against the CAL FIRE Fire Hazard Severity Zone map. The same check helps show whether you sit in VCFPD, the City of Ventura, or another municipal fire department.{overlay_clause}</p>
     </div>
     <div data-zz-checker
          data-api-url="{CHECKER_API_URL}"
          data-cta-href="{CHECKER_CTA_HREF}"
-         data-cta-label="Get Your Free Assessment"
+         data-cta-label="{CHECKER_CTA_LABEL}"
          data-default-city="{CHECKER_CITY_DISPLAY_NAME}"></div>
   </div>
 </section>"""
@@ -91,7 +92,7 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={PIXEL}&ev=PageView&noscript=1"></noscript>
 {rc}<script type="application/ld+json">
-{json.dumps(ld, indent=1)}
+{json.dumps(ld, indent=1, ensure_ascii=False)}
 </script>
 <style id="zz-transparency">
 .zz-phone-disclosure{{display:block;font-size:12px;line-height:1.45;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none;max-width:46ch;opacity:.9}}
@@ -116,7 +117,7 @@ def nav():
 <li><a href="/fences/">Fences</a></li>
 <li><a href="/fire-history/">Fire History</a></li>
 <li><a href="/resources/">Resources</a></li>
-<li><a href="/find-contractor/" class="zz-nav-cta">Connect with a Contractor</a></li>
+<li><a href="/find-contractor/" class="zz-nav-cta">Connect with a Specialist</a></li>
 </ul>
 </div>
 </nav>
@@ -127,9 +128,9 @@ def cta(place="your Ventura County property", trackc=False):
         return f"""<section class="zz-cta zz-cta-trackc">
 <div class="zz-container">
 <h2 class="zz-cta-title">Support is available for {place}</h2>
-<p>Grant programs and free defensible-space guidance exist for mountain communities, and a free assessment shows what applies to your parcel before you spend anything. No pressure, no obligation.</p>
+<p>Grant programs and free defensible-space guidance exist for mountain communities. Verify current openings through official channels before spending.</p>
 <a href="/assistance/" class="zz-btn">See assistance programs</a>
-<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">request a free assessment</a>
+<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">get in touch</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
 </section>
@@ -137,8 +138,8 @@ def cta(place="your Ventura County property", trackc=False):
     return f"""<section class="zz-cta">
 <div class="zz-container">
 <h2 class="zz-cta-title">Find out what {place} needs</h2>
-<p>A free assessment tells you exactly which Zone Zero requirements apply to your parcel, what your local fire authority will look for, and what to fix first. 100% free, no obligation.</p>
-<a href="/find-contractor/" class="zz-btn">Connect with a Licensed Contractor</a>
+<p>Submit your address and we will follow up about which local rules apply to your parcel, what your fire authority will look for, and what to fix first.</p>
+<a href="/find-contractor/" class="zz-btn">Connect with a Specialist</a>
 <p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span></p>
 </div>
@@ -152,7 +153,7 @@ def footer(checker=False):
 <div class="zz-footer-grid">
 <div class="zz-footer-about">
 <h4>Zone Zero Ventura</h4>
-<p>Plain-English guidance on California's Zone Zero ember-resistant zone requirements for {FOOTER_GEOGRAPHY}. Independent educational resource. Not a government agency.</p>
+<p>Plain-English guidance on wildfire home hardening and local Zone 0 rules for {FOOTER_GEOGRAPHY}. Independent educational resource. Not a government agency.</p>
 </div>
 <div>
 <h4>Guides</h4>
@@ -189,7 +190,7 @@ def footer(checker=False):
 </div>
 </div>
 <div class="zz-footer-bottom">
-      <p class="zz-operator-line">Zone Zero Ventura County is published by Zone Zero Property Inspections. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Zone Zero Property Inspections is not a contractor. Assessments and installations are performed by independent CSLB-licensed local contractors, and we may receive compensation when we connect you with a contractor.</p>
+      <p class="zz-operator-line">Zone Zero Ventura County is published by Zone Zero Property Inspections. It is an independent informational resource and is not affiliated with, endorsed by, or operated by any government agency, including the City of Ventura County, the County, CAL FIRE, or any fire department. Zone Zero Property Inspections is not a contractor.</p>
 <p>&copy; 2026 Zone Zero Ventura. Educational information, not legal advice. Regulations change: verify requirements with your local fire authority before making decisions. Questions? Call {PHONE_DISPLAY}.</p>
 </div>
 </div>
@@ -199,10 +200,11 @@ def footer(checker=False):
 </html>
 """
 
-def base_ld(title, desc, path, crumbs, faqs=None, area=None):
+def base_ld(title, desc, path, crumbs, faqs=None, area=None, service=False):
     graph = [
         {"@type": "Organization", "@id": "https://zonezerocalifornia.com/#org",
-         "name": "Zone Zero California", "url": "https://zonezerocalifornia.com"},
+         "name": "Zone Zero California", "url": "https://zonezerocalifornia.com",
+         "description": "An independent educational resource on wildfire home hardening and local Zone 0 rules in California."},
         {"@type": "WebSite", "@id": DOMAIN + "/#website", "url": DOMAIN + "/",
          "name": SITE_NAME, "publisher": {"@id": "https://zonezerocalifornia.com/#org"}},
     ]
@@ -211,7 +213,20 @@ def base_ld(title, desc, path, crumbs, faqs=None, area=None):
             "isPartOf": {"@id": DOMAIN + "/#website"}}
     if area:
         page["areaServed"] = {"@type": "Place", "name": area}
+    if service:
+        page["about"] = {"@id": DOMAIN + "/#service"}
     graph.append(page)
+    if service:
+        served = {"@type": "Place", "name": area} if area else {"@type": "AdministrativeArea", "name": "Ventura County, California"}
+        graph.append({
+            "@type": "Service",
+            "@id": DOMAIN + "/#service",
+            "name": "Zone Zero information",
+            "serviceType": "Wildfire home hardening information",
+            "provider": {"@id": "https://zonezerocalifornia.com/#org"},
+            "areaServed": served,
+
+        })
     items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": DOMAIN + p}
              for i, (n, p) in enumerate(crumbs)]
     graph.append({"@type": "BreadcrumbList", "itemListElement": items})
@@ -229,14 +244,14 @@ def faq_html(faqs, heading):
     out.append('</div></section>')
     return "\n".join(out)
 
-def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False, checker=False, meta_title=None, meta_desc=None):
+def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=False, cta_place=None, trackc=False, checker=False, meta_title=None, meta_desc=None, service=False):
     """path like '/deadlines/' -> deadlines/index.html ; '/' -> index.html ; '/404.html' special.
     checker=True inserts the zone-checker widget right after this page's own
     </header> — home page only, mirrors zone-zero-checker-api's patch().
     meta_title/meta_desc override only the visible <title>/meta tags, letting
     the structured-data name/description stay pinned to title/desc — needed
     where the served page's head tags and its ld+json were hand-edited apart."""
-    ld = base_ld(title, desc, path, crumbs, faqs, area)
+    ld = base_ld(title, desc, path, crumbs, faqs, area, service=service or path == "/find-contractor/")
     depth = 0 if path in ("/", "/404.html") else 1
     if checker:
         if body.count("</header>") != 1:
