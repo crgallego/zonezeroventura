@@ -464,7 +464,7 @@ def build(write_page):
   <div class="zz-container zz-prose" style="max-width:800px">
     <p><em>Effective date: August 21, 2026</em></p>
     <h2>Who we are</h2>
-    <p>This site is operated by Firewise Fences, Inc. ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
+    <p>This site is operated by Zone Zero Property Inspections ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
     <h2>What we collect</h2>
     <p>When you use our forms, compliance checker, or phone line, we may collect: your name, email address, phone number, property address or city, and information you provide about your property. Our phone line is answered by an automated AI assistant; calls may be recorded and transcribed. We also collect standard usage data through cookies and similar technologies, including via Google Analytics and the Meta (Facebook) pixel.</p>
     <h2>How we use it</h2>
