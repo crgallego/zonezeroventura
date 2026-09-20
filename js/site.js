@@ -51,7 +51,7 @@
 
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       payload.consent = true;
-      payload.consent_text_version = 'zz-consent-v1-2026-08-21';
+      payload.consent_text_version = 'zz-consent-v2-2026-09-20';
       payload.consent_ts = new Date().toISOString();
       payload.consent_page_url = location.href;
       payload.form_id = form.id || 'zz-find-contractor';

@@ -161,7 +161,7 @@ def build(write_page):
 <textarea id="message" name="message" rows="3"></textarea>
 <label class="zz-consent">
 <input type="checkbox" name="consent" required>
-<span><strong>Yes — connect me with a specialist.</strong> I am asking Firewise Fences, Inc. to share my name, phone number, email address, and property address with an independent CSLB-licensed contractor so that contractor can contact me about a Zone 0 assessment. I agree that contractor and Firewise Fences, Inc. may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
+<span><strong>Yes — contact me.</strong> I am asking Firewise Fences, Inc. to contact me about my request using the email address and phone number I provided. I agree Firewise Fences, Inc. may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
 </label>
 <button type="submit">Submit</button>
 <p class="zz-form-note">Your request goes to our team for review.</p>
