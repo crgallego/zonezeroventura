@@ -199,7 +199,7 @@ def build(write_page):
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>
 </div>
 </div></div></header>
-<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> {d['name']} is served by the {d['ahj']} as its local fire authority, with a {d['tier']} standing on this site. {qa_tail}</div></div>
+<div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> {qa_tail}</div></div>
 <section><div class="zz-container">
 <p class="zz-eyebrow">The local snapshot</p>
 <h2 class="zz-h2">Where {d['name']} stands</h2>
