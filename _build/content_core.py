@@ -161,7 +161,7 @@ def build(write_page):
 <textarea id="message" name="message" rows="3"></textarea>
 <label class="zz-consent">
 <input type="checkbox" name="consent" required>
-<span><strong>Yes — connect me with a contractor.</strong> I am asking Firewise Fences, Inc. to share my name, phone number, email address, and property address with an independent CSLB-licensed contractor so that contractor can contact me about a Zone 0 assessment. I agree that contractor and Firewise Fences, Inc. may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
+<span><strong>Yes — connect me with a contractor.</strong> I am asking Zone Zero Property Inspections to share my name, phone number, email address, and property address with an independent CSLB-licensed contractor so that contractor can contact me about a Zone 0 assessment. I agree that contractor and Zone Zero Property Inspections may call or text me at the number I provided, including using an automated dialing system or an artificial, prerecorded, or AI voice. <strong>I am not required to agree to this in order to use this site or its information, and agreeing is not a condition of purchasing anything.</strong> Message and data rates may apply. See our <a href="/privacy/">Privacy Policy</a>.</span>
 </label>
 <button type="submit">Request my free assessment</button>
 <p class="zz-form-note">Your request goes to our team for review.</p>
@@ -482,7 +482,7 @@ def build(write_page):
   <div class="zz-container zz-prose" style="max-width:800px">
     <p><em>Effective date: August 21, 2026</em></p>
     <h2>Who we are</h2>
-    <p>This site is operated by Firewise Fences, Inc. ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
+    <p>This site is operated by Zone Zero Property Inspections ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
     <h2>What we collect</h2>
     <p>When you use our forms, compliance checker, or phone line, we may collect: your name, email address, phone number, property address or city, and information you provide about your property. Our phone line is answered by an automated AI assistant; calls may be recorded and transcribed. We also collect standard usage data through cookies and similar technologies, including via Google Analytics and the Meta (Facebook) pixel.</p>
     <h2>How we use it</h2>
