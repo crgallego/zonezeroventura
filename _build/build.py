@@ -21,7 +21,7 @@ CHECKER_JS_SRC = "https://zone-zero-checker-api.netlify.app/zz-checker.js"
 CHECKER_API_URL = "https://zone-zero-checker-api.netlify.app/api/zone-checker/v2"
 CHECKER_CITY_DISPLAY_NAME = "Ventura County"
 CHECKER_CTA_HREF = "/request-inspection/#zz-request-inspection"
-CHECKER_CTA_LABEL = "Connect with a Specialist"
+CHECKER_CTA_LABEL = "Request an inspection"
 CHECKER_LA_COUNTY_OVERLAY_APPLIES = False
 
 def checker_section():
@@ -117,7 +117,7 @@ def nav():
 <li><a href="/fences/">Fences</a></li>
 <li><a href="/fire-history/">Fire History</a></li>
 <li><a href="/resources/">Resources</a></li>
-<li><a href="/request-inspection/" class="zz-nav-cta">Connect with a Specialist</a></li>
+<li><a href="/request-inspection/" class="zz-nav-cta">Request an inspection</a></li>
 </ul>
 </div>
 </nav>
@@ -139,7 +139,7 @@ def cta(place="your Ventura County property", trackc=False):
 <div class="zz-container">
 <h2 class="zz-cta-title">Find out what {place} needs</h2>
 <p>Submit your address and we will follow up about which local rules apply to your parcel, what your fire authority will look for, and what to fix first.</p>
-<a href="/request-inspection/" class="zz-btn">Connect with a Specialist</a>
+<a href="/request-inspection/" class="zz-btn">Request an inspection</a>
 <p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span></p>
 </div>

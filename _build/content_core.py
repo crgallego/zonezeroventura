@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Core page content for zonezeroventura.com. Hand-authored copy.
 Binding rules: no em dashes; terminology triplet per page; local-first AHJ framing;
-'Connect with a Specialist' never 'Find a Contractor' as visible copy.
+'Request an inspection' never 'Find a Contractor' as visible copy.
 Ventura throughlines: split-anchor doctrine (Mountain Fire 2024 = Camarillo only;
 Thomas Fire 2017 = Ventura/Ojai/Santa Paula/Fillmore + Ojai Valley cluster);
 City of Ventura has its OWN fire department and FHSZ mapping, distinct from VCFD;
@@ -128,7 +128,7 @@ def build(write_page):
                home_body, [("Home", "/")], home_faqs, "Ventura County, California", cta_place="your Ventura County property", checker=True)
 
     # ---------------- FIND CONTRACTOR ----------------
-    fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Connect with a Specialist</p></div>
+    fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Request an inspection</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
 <h1>Request a Zone 0 inspection in <em>Ventura County</em></h1>
 <p class="zz-hero-sub">Tell us where your property is. </p>
@@ -179,7 +179,7 @@ def build(write_page):
 """
     write_page("/request-inspection/", "Request a Zone 0 inspection in Ventura County | Zone Zero Ventura",
                "Ventura County Zone 0 follow-up: fire department, local Zone 0 status, and the first five feet. Statewide Zone 0 is Proposed — not in force.",
-               fc_body, [("Home", "/"), ("Connect with a Specialist", "/request-inspection/")],
+               fc_body, [("Home", "/"), ("Request an inspection", "/request-inspection/")],
                recaptcha=True, cta_place=None)
 
     # ---------------- DEADLINES ----------------
@@ -501,7 +501,7 @@ def build(write_page):
 <h1 class="zz-h2" style="font-size:44px">This page drifted off the pier</h1>
 <p>The page you're looking for isn't here. Everything on Zone Zero, Zone 0, and the ember-resistant zone for Ventura County is still one click away.</p>
 <p style="margin-top:26px"><a href="/" class="zz-btn zz-btn-sand">Back to the home page</a></p>
-<p style="margin-top:18px"><a href="/regulations/">Regulations</a> &middot; <a href="/deadlines/">Deadlines</a> &middot; <a href="/request-inspection/">Connect with a Specialist</a></p>
+<p style="margin-top:18px"><a href="/regulations/">Regulations</a> &middot; <a href="/deadlines/">Deadlines</a> &middot; <a href="/request-inspection/">Request an inspection</a></p>
 </div></section>
 """
     write_page("/404.html", "Page Not Found | Zone Zero Ventura",
