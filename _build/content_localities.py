@@ -196,7 +196,7 @@ def build(write_page):
 <h1>Zone Zero in {d['name']}: <em>{d['hero_em']}</em></h1>
 <p class="zz-hero-sub">What the ember-resistant zone rules mean for this {d['kind']}, under its actual designation and its actual fire authority.</p>
 <div class="zz-hero-btns">
-<a href="/find-contractor/" class="zz-btn zz-btn-sand">Check my parcel, free</a>
+<a href="/request-inspection/" class="zz-btn zz-btn-sand">Check my parcel, free</a>
 <a href="tel:{PHONE_TEL}" class="zz-btn zz-btn-ghost">Call {PHONE}</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>
 </div>

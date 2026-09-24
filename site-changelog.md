@@ -1,5 +1,12 @@
 # zonezeroventura.com — Site Changelog
 
+## 2026-09-24 — Contractor-referral funnel removed; inspection request page
+
+- Removed the fence-contractor referral disclosure.
+- Replaced the trade checklist with a required "What kind of property?" choice (`project_type`: residential, real-estate, commercial, hoa).
+- Moved the request form to `/request-inspection/` (title and H1: "Request a Zone 0 inspection in <city>") with 301s from the retired form URL. Links, sitemap, canonical and og URLs updated.
+- Consent text, consent version, phone numbers and the form webhook are unchanged.
+
 ## 2026-07-17 — Full 22-page reconstruction build (original 2026-07-12 build files lost; zips never downloaded)
 
 **Context:** Rebuilt fresh from surviving spec: `claude/ventura-kickoff.md` (Ventura Pier Harbor identity, Chris-approved 2026-07-12), the FHSZ identification doc, and network-config's resolved research. Third site in the reconstruction sequence (after OC and Riverside). Home H1 built to the keyword+locality standard.

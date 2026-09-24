@@ -4,5 +4,9 @@ https://zonezeroventura.com/*  https://www.zonezeroventura.com/:splat  301!
 http://zonezeroventura.com/*   https://www.zonezeroventura.com/:splat  301!
 http://www.zonezeroventura.com/*  https://www.zonezeroventura.com/:splat  301!
 
+# Retired contractor-referral form URL
+/find-contractor/*  /request-inspection/  301!
+/find-contractor  /request-inspection/  301!
+
 # 404 fallback
 /*  /404.html  404

@@ -20,7 +20,7 @@ CHECKER_CSS_HREF = "https://zone-zero-checker-api.netlify.app/zz-checker.css"
 CHECKER_JS_SRC = "https://zone-zero-checker-api.netlify.app/zz-checker.js"
 CHECKER_API_URL = "https://zone-zero-checker-api.netlify.app/api/zone-checker/v2"
 CHECKER_CITY_DISPLAY_NAME = "Ventura County"
-CHECKER_CTA_HREF = "/find-contractor/#zz-find-contractor"
+CHECKER_CTA_HREF = "/request-inspection/#zz-request-inspection"
 CHECKER_CTA_LABEL = "Connect with a Specialist"
 CHECKER_LA_COUNTY_OVERLAY_APPLIES = False
 
@@ -117,7 +117,7 @@ def nav():
 <li><a href="/fences/">Fences</a></li>
 <li><a href="/fire-history/">Fire History</a></li>
 <li><a href="/resources/">Resources</a></li>
-<li><a href="/find-contractor/" class="zz-nav-cta">Connect with a Specialist</a></li>
+<li><a href="/request-inspection/" class="zz-nav-cta">Connect with a Specialist</a></li>
 </ul>
 </div>
 </nav>
@@ -130,7 +130,7 @@ def cta(place="your Ventura County property", trackc=False):
 <h2 class="zz-cta-title">Support is available for {place}</h2>
 <p>Grant programs and free defensible-space guidance exist for mountain communities. Verify current openings through official channels before spending.</p>
 <a href="/assistance/" class="zz-btn">See assistance programs</a>
-<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/find-contractor/">get in touch</a>
+<p style="margin-top:18px;margin-bottom:0">Questions? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or <a class="zz-cta-tel" href="/request-inspection/">get in touch</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
 </section>
@@ -139,7 +139,7 @@ def cta(place="your Ventura County property", trackc=False):
 <div class="zz-container">
 <h2 class="zz-cta-title">Find out what {place} needs</h2>
 <p>Submit your address and we will follow up about which local rules apply to your parcel, what your fire authority will look for, and what to fix first.</p>
-<a href="/find-contractor/" class="zz-btn">Connect with a Specialist</a>
+<a href="/request-inspection/" class="zz-btn">Connect with a Specialist</a>
 <p style="margin-top:18px;margin-bottom:0">Prefer to talk? Call <a class="zz-cta-tel" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span></p>
 </div>
@@ -251,7 +251,7 @@ def write_page(path, title, desc, body, crumbs, faqs=None, area=None, recaptcha=
     meta_title/meta_desc override only the visible <title>/meta tags, letting
     the structured-data name/description stay pinned to title/desc — needed
     where the served page's head tags and its ld+json were hand-edited apart."""
-    ld = base_ld(title, desc, path, crumbs, faqs, area, service=service or path == "/find-contractor/")
+    ld = base_ld(title, desc, path, crumbs, faqs, area, service=service or path == "/request-inspection/")
     depth = 0 if path in ("/", "/404.html") else 1
     if checker:
         if body.count("</header>") != 1:
