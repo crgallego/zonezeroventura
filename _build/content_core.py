@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Core page content for zonezeroventura.com. Hand-authored copy.
 Binding rules: no em dashes; terminology triplet per page; local-first AHJ framing;
-'Connect with a Specialist' never 'Find a Contractor' as visible copy.
+'Request an inspection' never 'Find a Contractor' as visible copy.
 Ventura throughlines: split-anchor doctrine (Mountain Fire 2024 = Camarillo only;
 Thomas Fire 2017 = Ventura/Ojai/Santa Paula/Fillmore + Ojai Valley cluster);
 City of Ventura has its OWN fire department and FHSZ mapping, distinct from VCFD;
@@ -50,7 +50,7 @@ def build(write_page):
 <h1>Which fire department covers my <em>Ventura County</em> parcel?</h1>
 <p class="zz-hero-sub"><b>Start with the fire department, not a statewide calendar.</b> VCFPD covers most cities and unincorporated land. The City of Ventura and Fillmore have their own fire departments. Zone 0 is the first five feet. Statewide it is Proposed — not in force. Inside VCFPD, local Zone 0 is Required now for new buildings, additions, and new or refurbished landscape.</p>
 <div class="zz-hero-btns">
-<a href="/find-contractor/" class="zz-btn zz-btn-sand">Check your address</a>
+<a href="/request-inspection/" class="zz-btn zz-btn-sand">Check your address</a>
 <a href="/regulations/" class="zz-btn zz-btn-ghost">Read the requirements</a>
 </div>
 </div></div>{HARBOR_SVG}</header>
@@ -128,9 +128,9 @@ def build(write_page):
                home_body, [("Home", "/")], home_faqs, "Ventura County, California", cta_place="your Ventura County property", checker=True)
 
     # ---------------- FIND CONTRACTOR ----------------
-    fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Connect with a Specialist</p></div>
+    fc_body = f"""<div class="zz-container"><p class="zz-crumb"><a href="/">Home</a> &rsaquo; Request an inspection</p></div>
 <header class="zz-hero" style="padding-bottom:104px"><div class="zz-container"><div class="zz-hero-inner">
-<h1>Tell us about your <em>Ventura County</em> property</h1>
+<h1>Request a Zone 0 inspection in <em>Ventura County</em></h1>
 <p class="zz-hero-sub">Tell us where your property is. </p>
 </div></div>{HARBOR_SVG}</header>
 <div class="zz-container"><div class="zz-quick-answer"><b>Quick answer:</b> Zone Zero work in the 0 to 5 foot ember-resistant zone often involves fencing, gates, hardscape, and vegetation changes. Hired fence work at $1,000 or more in labor and materials, a permit, or hired workers typically requires a CSLB-licensed contractor (Class C-13 for fencing); owner-builder and minor-work exemptions can apply.</div></div>
@@ -143,7 +143,7 @@ def build(write_page):
 <p>Prefer to talk it through? Call <a href="tel:{PHONE_TEL}"><b>{PHONE}</b></a>
           <span class="zz-phone-disclosure">Calls are answered by an automated AI assistant and may be recorded and transcribed.</span>.</p>
 </div>
-<form id="zz-find-contractor" class="zz-form" data-webhook="" novalidate>
+<form id="zz-request-inspection" class="zz-form" data-webhook="" novalidate>
 <h2 class="zz-h3" style="font-size:22px">Submit your property</h2>
 <label for="first_name">First name</label>
 <input id="first_name" name="first_name" type="text" autocomplete="given-name" required>
@@ -157,6 +157,13 @@ def build(write_page):
 <input id="address" name="address" type="text" autocomplete="street-address" required>
 <label for="city">City or community</label>
 <input id="city" name="city" type="text" autocomplete="address-level2" required>
+<fieldset class="zz-checkset" style="border:0;padding:0;margin:14px 0 0">
+<legend style="font-weight:800;font-size:14px;padding:0;margin-bottom:6px">What kind of property? *</legend>
+<label style="display:flex;gap:10px;align-items:center;font-weight:600;margin:6px 0"><input type="radio" name="project_type" value="residential" required style="width:auto;margin:0"><span>Residential</span></label>
+<label style="display:flex;gap:10px;align-items:center;font-weight:600;margin:6px 0"><input type="radio" name="project_type" value="real-estate" style="width:auto;margin:0"><span>Real estate (selling or listing)</span></label>
+<label style="display:flex;gap:10px;align-items:center;font-weight:600;margin:6px 0"><input type="radio" name="project_type" value="commercial" style="width:auto;margin:0"><span>Commercial</span></label>
+<label style="display:flex;gap:10px;align-items:center;font-weight:600;margin:6px 0"><input type="radio" name="project_type" value="hoa" style="width:auto;margin:0"><span>HOA common area</span></label>
+</fieldset>
 <label for="message">Anything specific you want checked? (optional)</label>
 <textarea id="message" name="message" rows="3"></textarea>
 <label class="zz-consent">
@@ -166,14 +173,13 @@ def build(write_page):
 <button type="submit">Submit</button>
 <p class="zz-form-note">Your request goes to our team for review.</p>
 <p class="zz-form-status" role="status"></p>
-<p class="zz-disclosure">Disclosure: this network's operator also owns a fence contracting company, and fence inquiries may be referred to it. You are never obligated to use it, and you're free to choose any licensed contractor. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
 </form>
 </div></section>
 <style>@media (max-width:767px){{#zz-fc-grid{{grid-template-columns:1fr !important}}}}</style>
 """
-    write_page("/find-contractor/", "Ventura County property follow-up | Zone Zero Ventura",
+    write_page("/request-inspection/", "Request a Zone 0 inspection in Ventura County | Zone Zero Ventura",
                "Ventura County Zone 0 follow-up: fire department, local Zone 0 status, and the first five feet. Statewide Zone 0 is Proposed — not in force.",
-               fc_body, [("Home", "/"), ("Connect with a Specialist", "/find-contractor/")],
+               fc_body, [("Home", "/"), ("Request an inspection", "/request-inspection/")],
                recaptcha=True, cta_place=None)
 
     # ---------------- DEADLINES ----------------
@@ -406,7 +412,7 @@ def build(write_page):
 <li><b>Your fire authority first.</b> The Ventura County Fire Department serves the contract cities and unincorporated communities with defensible-space guidance; City of Ventura homeowners start with the city's own department.</li>
 <li><b>State programs.</b> CAL FIRE administers defensible-space and home-hardening grant funding as it's appropriated. Check current cycles at fire.ca.gov.</li>
 <li><b>Community fire-safe organizations.</b> The recovery periods after the Thomas and Mountain fires built local support networks; ask your fire authority what's currently active in your area.</li>
-<li><b>Know the real scope.</b> Knowing your real scope is itself financial protection: it stops you from over-buying work you don't need. <a href="/find-contractor/">Get in touch.</a></li>
+<li><b>Know the real scope.</b> Knowing your real scope is itself financial protection: it stops you from over-buying work you don't need. <a href="/request-inspection/">Get in touch.</a></li>
 <li><b>Low-cost first moves.</b> Rehoming stored firewood beyond the 5-foot ring and swapping bark mulch for gravel are weekend projects that close the biggest ember pathways.</li>
 </ul>
 <p><b>A note on honesty:</b> we don't list specific dollar amounts or name grant programs we haven't verified as currently open, because funding cycles close. The <a href="/resources/">resources page</a> links the official sources that stay current.</p>
@@ -495,7 +501,7 @@ def build(write_page):
 <h1 class="zz-h2" style="font-size:44px">This page drifted off the pier</h1>
 <p>The page you're looking for isn't here. Everything on Zone Zero, Zone 0, and the ember-resistant zone for Ventura County is still one click away.</p>
 <p style="margin-top:26px"><a href="/" class="zz-btn zz-btn-sand">Back to the home page</a></p>
-<p style="margin-top:18px"><a href="/regulations/">Regulations</a> &middot; <a href="/deadlines/">Deadlines</a> &middot; <a href="/find-contractor/">Connect with a Specialist</a></p>
+<p style="margin-top:18px"><a href="/regulations/">Regulations</a> &middot; <a href="/deadlines/">Deadlines</a> &middot; <a href="/request-inspection/">Request an inspection</a></p>
 </div></section>
 """
     write_page("/404.html", "Page Not Found | Zone Zero Ventura",
