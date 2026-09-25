@@ -468,7 +468,7 @@ def build(write_page):
 </header>
 <section style="padding:72px 0">
   <div class="zz-container zz-prose" style="max-width:800px">
-    <p><em>Effective date: August 21, 2026</em></p>
+    <p><em>Effective date: September 25, 2026</em></p>
     <h2>Who we are</h2>
     <p>This site is operated by Zone Zero Property Inspections ("we," "us"). This policy describes what we collect on this site and how we use it.</p>
     <h2>What we collect</h2>
@@ -476,11 +476,15 @@ def build(write_page):
     <h2>How we use it</h2>
     <p>We use this information to operate the site, respond to your requests, and provide the compliance guide.</p>
     <h2>Who we share it with</h2>
-    <p>If you request a contractor connection, we share your contact and property information with the contractor(s) who will follow up. We also use service providers (hosting, analytics, advertising, and workflow automation) that process data on our behalf. We do not sell your personal information to unrelated third parties.</p>
+    <p>If you request a contractor connection, we share your contact and property information with the contractor(s) who will follow up. We also use service providers (hosting, analytics, advertising, and workflow automation) that process data on our behalf. We do not sell your personal information for money. We share limited data with Google and Meta for analytics and advertising, as described above. You can opt out.</p>
     <h2>Your choices</h2>
     <p>You can browse this site without submitting any personal information. You can control cookies through your browser settings. California residents may request access to or deletion of their personal information via the contact form on this site; we will respond as required by applicable law.</p>
     <h2>Do Not Track</h2>
     <p>This site does not currently respond to browser Do Not Track signals.</p>
+    <h2>Analytics, advertising, and your choices</h2>
+    <p>This site uses Google Analytics 4 to understand visits and Meta (Facebook) pixels to measure our ads. These are on by default. They may set cookies and receive your IP address, browser and device details, the pages you view, and how you arrived. On pages with a request form, the pixels send only a &ldquo;Lead&rdquo; event when you submit the form, and no page-view event.</p>
+    <p>When you submit an inspection request and have not opted out, our system also sends Meta your email address and phone number, hashed (converted to a one-way code), along with your IP address, browser type, and the page address, through Meta&rsquo;s Conversions API. We do this to measure whether our ads lead to requests. Meta may match the hashed values to its own users.</p>
+    <p>To opt out, use &ldquo;Privacy choices&rdquo; in the footer of any page and choose &ldquo;Turn off analytics and ads.&rdquo; If your browser sends the Global Privacy Control signal, we keep both off automatically. Your choice is saved in this browser. This choice stops browser analytics and pixels. It also applies to request forms: if you have opted out, our system does not send your hashed email address or phone number to Meta when you submit one.</p>
     <h2>Changes</h2>
     <p>If we change this policy, we will post the updated version on this page with a new effective date.</p>
     <h2>Contact</h2>
