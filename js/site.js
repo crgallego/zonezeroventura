@@ -62,7 +62,7 @@
         return fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(Object.assign({}, payload, { _ads_consent: window.zzConsent ? window.zzConsent.state() : 'granted' }))
         });
       }).then(function (res) {
         if (!res.ok) { throw new Error('bad status'); }

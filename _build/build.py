@@ -74,23 +74,9 @@ def head(title, desc, path, ld, recaptcha=False, depth=1, checker=False, meta_ti
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{FONTS}" rel="stylesheet">
 <link rel="stylesheet" href="{pre}css/site.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA4}"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){{dataLayer.push(arguments);}}
-gtag('js', new Date());
-gtag('config', '{GA4}');
-</script>
-<script>
-!function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)}};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '{PIXEL}');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={PIXEL}&ev=PageView&noscript=1"></noscript>
+<!-- Analytics and ads, loaded by /js/zz-consent.js (on by default, off with GPC or opt-out) -->
+<meta name="zz-ga4" content="{GA4}"><meta name="zz-pixel" content="{PIXEL},3477703075702797">
+<script defer src="/js/zz-consent.js"></script>
 {rc}<script type="application/ld+json">
 {json.dumps(ld, indent=1, ensure_ascii=False)}
 </script>
